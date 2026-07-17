@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@type": ["HealthClub", "LocalBusiness"],
+  "@id": "https://themomentumfitness.com/#localbusiness",
+  "name": "Momentum Proactive Health & Fitness",
+  "alternateName": "Momentum Fitness",
+  "description": "Gym and physical therapy studio in Pantego, TX offering 1-on-1, semi-private and small-group prescriptive training, physical therapy led by a licensed Doctor of Physical Therapy, and nutrition coaching. Serving Arlington and Mansfield, Texas.",
+  "url": "https://themomentumfitness.com/",
+  "telephone": "+1-817-319-0093",
+  "email": "info@themomentumfitness.com",
+  "image": "https://themomentumfitness.com/REPLACE-WITH-YOUR-LOGO-OR-STOREFRONT-PHOTO.jpg",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2401 W Pioneer Parkway, Suite 103",
+    "addressLocality": "Pantego",
+    "addressRegion": "TX",
+    "postalCode": "76013",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Pantego" },
+    { "@type": "City", "name": "Arlington" },
+    { "@type": "City", "name": "Mansfield" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/momentumfit.us/"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "FILL_IN e.g. 05:00",
+      "closes": "FILL_IN e.g. 20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "FILL_IN",
+      "closes": "FILL_IN"
+    }
+  ]
+}
