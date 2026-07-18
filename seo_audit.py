@@ -108,24 +108,29 @@ def load_robots(session):
     return rp, sitemaps
 
 
+def _localname(tag):
+    return tag.rsplit("}", 1)[-1].lower() if isinstance(tag, str) else ""
+
+
 def parse_sitemap_xml(content):
     """Return (child_sitemap_urls, page_urls) from one sitemap document."""
     children, pages = [], []
     try:
-        # Strip namespaces so tag matching is simple.
-        text = re.sub(r'xmlns(:\w+)?="[^"]+"', "", content, count=10)
-        root = ElementTree.fromstring(text)
+        root = ElementTree.fromstring(content)
     except ElementTree.ParseError:
         return children, pages
-    tag = root.tag.lower()
-    for loc in root.iter("loc"):
-        u = (loc.text or "").strip()
-        if not u:
+    is_index = "sitemapindex" in _localname(root.tag)
+    # Only take <loc> that is a direct child of <url>/<sitemap>, so that
+    # image:loc / video:loc extensions are not mistaken for page URLs.
+    for entry in root:
+        if _localname(entry.tag) not in ("url", "sitemap"):
             continue
-        if "sitemapindex" in tag:
-            children.append(u)
-        else:
-            pages.append(u)
+        for child in entry:
+            if _localname(child.tag) != "loc":
+                continue
+            u = (child.text or "").strip()
+            if u:
+                (children if is_index else pages).append(u)
     return children, pages
 
 
