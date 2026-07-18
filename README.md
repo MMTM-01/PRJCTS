@@ -3,23 +3,17 @@
 Audit workspace for **https://themomentumfitness.com** (Momentum Proactive
 Health & Fitness, Pantego TX — targeting Arlington and Mansfield searches).
 
-## ⚠️ Current status: crawl blocked by this workspace's network settings
+## ✅ Current status: audit complete (July 18, 2026)
 
-Everything is built and tested, but **this cloud session was not allowed to
-reach the public internet**, so the crawl itself could not run yet. This is
-not a problem with your website — the site is live and healthy (verified via
-web search). The sandbox that runs this code blocks outgoing web traffic
-unless the environment is configured to allow it.
+The crawl ran successfully against all **62 pages** in the sitemap.
+**Read `audit-report.md` for the plain-English top-10 findings and a
+week-by-week fix plan.** The raw data is in `audit-data.csv` (one row per
+page, opens in Excel/Google Sheets) and `audit-raw.json`.
 
-**How to fix (one-time, ~2 minutes):**
-
-1. Go to [claude.ai/code](https://claude.ai/code) and open **Environments**
-   (the settings for the environment this session runs in).
-2. Set the environment's **Network access** policy to *Trusted* or *Full*
-   network access (or add `themomentumfitness.com` to the allowed domains).
-   Docs: https://code.claude.com/docs/en/claude-code-on-the-web
-3. Start a new session on this repository and say:
-   *"Run the SEO audit script and write up the report."*
+Headline findings: a 27 MB autoplay homepage video, 38 pages with default
+"- Momentum Fitness" titles, 12 near-empty orphaned trainer pages, junk
+archive pages in the sitemap, and schema that claims the gym is open 9–5
+seven days a week. Full details and fixes in the report.
 
 ## What's in this folder
 
@@ -47,6 +41,13 @@ It prints the total page count after Step 1 (sitemap discovery), then crawls.
 A quick smoke test: `.venv/bin/python seo_audit.py --max-pages 3`
 
 ## How to use `schema-localbusiness.json`
+
+**Update after the crawl:** the site already outputs `ExerciseGym` +
+`Organization` schema with correct address/geo/phone on ~50 pages (via the
+SEO plugin), so pasting this file is now optional. The higher-priority fix
+is correcting the opening hours in Rank Math → Local SEO — the live schema
+currently claims 09:00–17:00 seven days a week (see `audit-report.md`,
+item 9). Keep the file as a reference if you ever move off the plugin.
 
 This is the structured-data block that tells Google you're a local business
 in Pantego serving Arlington and Mansfield. Before pasting:
