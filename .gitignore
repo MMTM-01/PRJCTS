@@ -1,2 +1,3 @@
 .venv/
 audit-run.log
+__pycache__/
