@@ -245,6 +245,22 @@
   .draftcard .dtitle{font-family:"Poppins",system-ui,sans-serif; font-weight:600; font-size:14.5px}
   .draftcard .dmeta{font-size:12.5px; color:var(--muted); margin-top:2px}
 
+  .modalback{
+    position:fixed; inset:0; z-index:70; display:flex; align-items:center; justify-content:center;
+    background:rgba(12,11,9,.55); padding:20px;
+  }
+  .modal{
+    background:var(--surface); color:var(--ink); border:1px solid var(--line);
+    border-top:4px solid var(--gold); border-radius:12px; box-shadow:0 24px 60px -20px rgba(0,0,0,.55);
+    max-width:440px; width:100%; padding:22px 24px;
+  }
+  .modal .mtitle{
+    font-family:"Poppins",system-ui,sans-serif; font-weight:600; font-size:17px; margin-bottom:8px;
+  }
+  .modal .mbody{font-size:14.5px; color:var(--muted); line-height:1.5; white-space:pre-line}
+  .modal .mactions{display:flex; justify-content:flex-end; gap:10px; margin-top:20px}
+  .btn.solid-danger{background:var(--danger); border-color:var(--danger); color:#fff}
+  .btn.solid-danger:hover{background:#9c3a33; border-color:#9c3a33}
   #toast{
     position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px);
     background:var(--bar); color:var(--bar-ink); border:1px solid var(--gold);
@@ -471,6 +487,17 @@ const UI_HTML = [
 '  </aside>',
 '</main>',
 '',
+'<div class="modalback" id="modalBack" hidden>',
+'  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">',
+'    <div class="mtitle" id="modalTitle"></div>',
+'    <div class="mbody" id="modalBody"></div>',
+'    <div class="mactions">',
+'      <button class="btn" id="modalCancel" type="button">Cancel</button>',
+'      <button class="btn gold" id="modalOk" type="button">Confirm</button>',
+'    </div>',
+'  </div>',
+'</div>',
+'',
 '<div id="toast" role="status"></div>'
 ].join("\n");
 
@@ -517,6 +544,48 @@ function niceStamp(iso) {
   const dt = new Date(iso);
   if (isNaN(dt)) return "";
   return dt.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+/* The published page runs in a sandboxed frame where window.confirm() is
+   ignored and returns false, so every confirmation uses this in-page dialog. */
+function askConfirm(opts) {
+  return new Promise(resolve => {
+    const back = document.getElementById("modalBack");
+    const ok = document.getElementById("modalOk");
+    const cancel = document.getElementById("modalCancel");
+    document.getElementById("modalTitle").textContent = opts.title || "Are you sure?";
+    document.getElementById("modalBody").textContent = opts.message || "";
+    ok.textContent = opts.confirmLabel || "Confirm";
+    ok.classList.toggle("solid-danger", !!opts.danger);
+    ok.classList.toggle("gold", !opts.danger);
+    cancel.textContent = opts.cancelLabel || "Cancel";
+    back.hidden = false;
+    const prev = document.activeElement;
+    ok.focus();
+    function done(val) {
+      back.hidden = true;
+      ok.removeEventListener("click", onOk);
+      cancel.removeEventListener("click", onCancel);
+      back.removeEventListener("mousedown", onBack);
+      document.removeEventListener("keydown", onKey, true);
+      if (prev && prev.focus) { try { prev.focus(); } catch (e) { /* gone */ } }
+      resolve(val);
+    }
+    function onOk() { done(true); }
+    function onCancel() { done(false); }
+    function onBack(e) { if (e.target === back) done(false); }
+    function onKey(e) {
+      if (e.key === "Escape") { e.preventDefault(); done(false); }
+      else if (e.key === "Enter") { e.preventDefault(); done(true); }
+      else if (e.key === "Tab") { /* keep focus on the two buttons */
+        e.preventDefault();
+        (document.activeElement === ok ? cancel : ok).focus();
+      }
+    }
+    ok.addEventListener("click", onOk);
+    cancel.addEventListener("click", onCancel);
+    back.addEventListener("mousedown", onBack);
+    document.addEventListener("keydown", onKey, true);
+  });
 }
 function toast(msg) {
   const t = document.getElementById("toast");
@@ -594,9 +663,14 @@ function draftLabel(d) {
   return data.name ? data.name : "an unnamed client";
 }
 /* Confirm before destroying unsaved work; silent when the form is empty. */
-function confirmDiscardDraft() {
+async function confirmDiscardDraft() {
   if (!draftHasContent()) return true;
-  return confirm("Discard the unsaved form for " + draftLabel() + "?\n\nIt has not been saved to the portal.");
+  return askConfirm({
+    title: "Discard this unsaved form?",
+    message: "The form for " + draftLabel() + " has not been saved to the portal. Discarding it cannot be undone.",
+    confirmLabel: "Discard",
+    danger: true
+  });
 }
 function discardDraft() {
   try { localStorage.removeItem(STORE_KEY); } catch (e) { /* ignore */ }
@@ -1355,8 +1429,8 @@ document.getElementById("fmtBranded").addEventListener("click", () => {
   document.getElementById("fmtClassic").classList.remove("on");
   refresh();
 });
-document.getElementById("btnNew").addEventListener("click", () => {
-  if (!confirmDiscardDraft()) return;
+document.getElementById("btnNew").addEventListener("click", async () => {
+  if (!await confirmDiscardDraft()) return;
   discardDraft();
   showView("builder");
   toast("Form cleared");
@@ -1370,16 +1444,16 @@ document.getElementById("btnSaveNewVisit").addEventListener("click", () => {
 });
 document.getElementById("navRoster").addEventListener("click", () => showView("roster"));
 document.getElementById("navBuilder").addEventListener("click", () => showView("builder"));
-document.getElementById("btnNewRecord").addEventListener("click", () => {
-  if (!confirmDiscardDraft()) return;
+document.getElementById("btnNewRecord").addEventListener("click", async () => {
+  if (!await confirmDiscardDraft()) return;
   discardDraft();
   showView("builder");
 });
-document.getElementById("draftCard").addEventListener("click", e => {
+document.getElementById("draftCard").addEventListener("click", async e => {
   const btn = e.target.closest("[data-dact]");
   if (!btn) return;
   if (btn.dataset.dact === "resume") { showView("builder"); window.scrollTo(0, 0); return; }
-  if (!confirmDiscardDraft()) return;
+  if (!await confirmDiscardDraft()) return;
   discardDraft();
   renderRoster();
   toast("Draft discarded");
@@ -1391,26 +1465,44 @@ document.getElementById("importFile").addEventListener("change", e => {
   if (e.target.files && e.target.files[0]) importBackup(e.target.files[0]);
   e.target.value = "";
 });
-document.getElementById("rosterList").addEventListener("click", e => {
+document.getElementById("rosterList").addEventListener("click", async e => {
   const btn = e.target.closest("[data-act]");
   if (!btn) return;
   e.preventDefault();
   const { act, cid, vid } = btn.dataset;
-  if (act === "open") openVisit(cid, vid);
-  else if (act === "delvisit") {
-    if (!confirm("Delete this saved visit? This can’t be undone (export a backup first if unsure).")) return;
+  if (act === "open") { openVisit(cid, vid); return; }
+  const client = DB.clients.find(c => c.id === cid);
+  if (!client) { toast("That record is no longer here"); return; }
+  if (act === "delvisit") {
+    const visit = client.visits.find(v => v.id === vid);
+    const ok = await askConfirm({
+      title: "Delete this visit?",
+      message: "The " + (visit ? niceStamp(visit.savedAt) + " " : "") + "visit for " + client.name +
+        " will be removed for everyone. This cannot be undone — export a backup first if you are unsure.",
+      confirmLabel: "Delete visit",
+      danger: true
+    });
+    if (!ok) return;
     DB = MODE === "local" ? (readLocalMirror() || readDbBlock()) : readDbBlock();
     deleteVisit(DB, cid, vid);
+    if (openedVisit && openedVisit.visitId === vid) { openedVisit = null; updateSaveBar(); }
     publishDb(null);
-    if (MODE === "local") renderRoster();
+    if (MODE === "local") { renderRoster(); toast("Visit deleted"); }
   } else if (act === "delclient") {
-    const client = DB.clients.find(c => c.id === cid);
-    if (!client) return;
-    if (!confirm("Delete " + client.name + " and ALL their saved visits? This can’t be undone.")) return;
+    const n = client.visits.length;
+    const ok = await askConfirm({
+      title: "Delete " + client.name + "?",
+      message: "All " + n + " saved visit" + (n === 1 ? "" : "s") + " for " + client.name +
+        " will be removed for everyone. This cannot be undone — export a backup first if you are unsure.",
+      confirmLabel: "Delete client",
+      danger: true
+    });
+    if (!ok) return;
     DB = MODE === "local" ? (readLocalMirror() || readDbBlock()) : readDbBlock();
     DB.clients = DB.clients.filter(c => c.id !== cid);
+    if (openedVisit && openedVisit.clientId === cid) { openedVisit = null; updateSaveBar(); }
     publishDb(null);
-    if (MODE === "local") renderRoster();
+    if (MODE === "local") { renderRoster(); toast("Client deleted"); }
   }
 });
 document.querySelector('[data-key="trainer"]').addEventListener("change", e => {
