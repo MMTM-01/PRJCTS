@@ -235,6 +235,15 @@
     text-align:center; color:var(--muted); padding:44px 20px;
     background:var(--surface); border:1px dashed var(--line); border-radius:10px;
   }
+  .draftcard{
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    background:var(--surface); border:1px solid var(--line);
+    border-left:4px solid var(--gold); border-radius:10px;
+    box-shadow:var(--shadow); padding:13px 16px;
+  }
+  .draftcard .dinfo{flex:1; min-width:180px}
+  .draftcard .dtitle{font-family:"Poppins",system-ui,sans-serif; font-weight:600; font-size:14.5px}
+  .draftcard .dmeta{font-size:12.5px; color:var(--muted); margin-top:2px}
 
   #toast{
     position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px);
@@ -260,6 +269,7 @@ const LOGO_URI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAABiCAYAAACI
 const PHONE = "817-319-0093";
 const STORE_KEY = "momentum-discovery-email-v1";
 const LOCAL_DB_KEY = "momentum-portal-db-v1";
+const TRAINER_KEY = "momentum-trainer-v1";
 const PENDING_KEY = "momentum-pending-save-v1";
 
 const FMS_TESTS = [
@@ -298,6 +308,7 @@ const UI_HTML = [
 '    <button class="btn" id="btnImport" type="button">Import</button>',
 '    <input type="file" id="importFile" accept=".json,application/json" hidden>',
 '  </div>',
+'  <div class="draftcard" id="draftCard" hidden></div>',
 '  <div class="rhead" id="rosterCount"></div>',
 '  <div id="rosterList" style="display:flex;flex-direction:column;gap:12px"></div>',
 '  <div class="empty" id="rosterEmpty" hidden>No clients saved yet.<br>Fill out a Discovery form and hit <b>Save to Portal</b> — it will appear here for the whole team.</div>',
@@ -542,11 +553,57 @@ function restoreDraft() {
 function persistDraft(d) {
   try { localStorage.setItem(STORE_KEY, JSON.stringify(d)); } catch (e) { /* storage full/blocked */ }
 }
-function clearForm() {
+function clearForm(keepTrainer) {
+  const trainer = keepTrainer === false ? "" : rememberedTrainer();
   document.querySelectorAll("#form [data-key]").forEach(el => {
     if (el.type === "checkbox") el.checked = el.dataset.key === "shoulderCaveat" || el.dataset.key.startsWith("res");
     else el.value = "";
   });
+  const dateEl = document.querySelector('[data-key="date"]');
+  if (dateEl) dateEl.value = todayIso();
+  const trainerEl = document.querySelector('[data-key="trainer"]');
+  if (trainerEl && trainer) trainerEl.value = trainer;
+}
+function todayIso() {
+  const now = new Date();
+  return now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+}
+function rememberedTrainer() {
+  try { return localStorage.getItem(TRAINER_KEY) || ""; } catch (e) { return ""; }
+}
+function rememberTrainer(name) {
+  if (!name) return;
+  try { localStorage.setItem(TRAINER_KEY, name); } catch (e) { /* storage blocked */ }
+}
+/* A draft counts as "has content" when a trainer has typed anything a
+   clear would destroy. Date and trainer are auto-filled, so they don't count. */
+function draftHasContent(d) {
+  const data = d || collect();
+  for (const el of document.querySelectorAll("#form [data-key]")) {
+    const key = el.dataset.key;
+    if (key === "date" || key === "trainer") continue;
+    if (el.type === "checkbox") {
+      const def = key === "shoulderCaveat" || key.startsWith("res");
+      if (data[key] !== def) return true;
+    } else if (data[key]) return true;
+  }
+  return false;
+}
+function draftLabel(d) {
+  const data = d || collect();
+  return data.name ? data.name : "an unnamed client";
+}
+/* Confirm before destroying unsaved work; silent when the form is empty. */
+function confirmDiscardDraft() {
+  if (!draftHasContent()) return true;
+  return confirm("Discard the unsaved form for " + draftLabel() + "?\n\nIt has not been saved to the portal.");
+}
+function discardDraft() {
+  try { localStorage.removeItem(STORE_KEY); } catch (e) { /* ignore */ }
+  clearForm();
+  openedVisit = null;
+  updateSaveBar();
+  refresh();
 }
 
 /* ================= derived values ================= */
@@ -1072,6 +1129,10 @@ function updateSaveBar() {
     msg.innerHTML = "Editing <b>" + esc(openedVisit.clientName) + "</b> — visit saved " + esc(niceStamp(openedVisit.savedAt));
     btnMain.textContent = "Update Visit";
     btnNewV.hidden = false;
+  } else if (draftHasContent()) {
+    msg.innerHTML = "Unsaved draft — <b>" + esc(draftLabel()) + "</b> · not in the portal yet";
+    btnMain.textContent = "Save to Portal";
+    btnNewV.hidden = true;
   } else {
     msg.textContent = "New discovery record — not saved to the portal yet";
     btnMain.textContent = "Save to Portal";
@@ -1119,6 +1180,21 @@ function renderRoster() {
     DB.clients.length + " client" + (DB.clients.length === 1 ? "" : "s") + " · " + totalVisits + " saved visit" + (totalVisits === 1 ? "" : "s");
   document.getElementById("rosterList").innerHTML = clients.map(clientCardHtml).join("");
   document.getElementById("rosterEmpty").hidden = DB.clients.length > 0;
+  renderDraftCard();
+}
+/* Surfaces an abandoned in-progress form so the next trainer on a shared
+   computer sees it instead of silently wiping it. */
+function renderDraftCard() {
+  const host = document.getElementById("draftCard");
+  if (!host) return;
+  if (openedVisit || !draftHasContent()) { host.hidden = true; host.innerHTML = ""; return; }
+  const d = collect();
+  host.hidden = false;
+  host.innerHTML =
+    '<div class="dinfo"><div class="dtitle">Unsaved draft — ' + esc(draftLabel(d)) + "</div>" +
+    '<div class="dmeta">' + (d.trainer ? "started by " + esc(d.trainer) + " · " : "") + "not saved to the portal</div></div>" +
+    '<button type="button" class="btn sm" data-dact="resume">Resume</button>' +
+    '<button type="button" class="btn sm danger" data-dact="discard">Discard</button>';
 }
 
 function openVisit(cid, vid) {
@@ -1210,6 +1286,7 @@ function refresh() {
     : "Subject: <b>" + esc(subjectLine(d)) + "</b>";
   preview.innerHTML = buildEmailHtml("preview");
   preview.style.padding = format === "branded" ? "0" : "26px 28px";
+  updateSaveBar();
 }
 function htmlToText(html) {
   const tmp = document.createElement("div");
@@ -1259,13 +1336,9 @@ document.getElementById("fmtBranded").addEventListener("click", () => {
   refresh();
 });
 document.getElementById("btnNew").addEventListener("click", () => {
-  if (!confirm("Clear the form and start a new client?")) return;
-  localStorage.removeItem(STORE_KEY);
-  clearForm();
-  openedVisit = null;
-  updateSaveBar();
+  if (!confirmDiscardDraft()) return;
+  discardDraft();
   showView("builder");
-  refresh();
   toast("Form cleared");
 });
 document.getElementById("btnSavePortal").addEventListener("click", () => {
@@ -1278,8 +1351,18 @@ document.getElementById("btnSaveNewVisit").addEventListener("click", () => {
 document.getElementById("navRoster").addEventListener("click", () => showView("roster"));
 document.getElementById("navBuilder").addEventListener("click", () => showView("builder"));
 document.getElementById("btnNewRecord").addEventListener("click", () => {
-  clearForm(); localStorage.removeItem(STORE_KEY);
-  openedVisit = null; updateSaveBar(); showView("builder"); refresh();
+  if (!confirmDiscardDraft()) return;
+  discardDraft();
+  showView("builder");
+});
+document.getElementById("draftCard").addEventListener("click", e => {
+  const btn = e.target.closest("[data-dact]");
+  if (!btn) return;
+  if (btn.dataset.dact === "resume") { showView("builder"); window.scrollTo(0, 0); return; }
+  if (!confirmDiscardDraft()) return;
+  discardDraft();
+  renderRoster();
+  toast("Draft discarded");
 });
 document.getElementById("searchBox").addEventListener("input", renderRoster);
 document.getElementById("btnExport").addEventListener("click", exportBackup);
@@ -1310,6 +1393,9 @@ document.getElementById("rosterList").addEventListener("click", e => {
     if (MODE === "local") renderRoster();
   }
 });
+document.querySelector('[data-key="trainer"]').addEventListener("change", e => {
+  rememberTrainer(e.target.value.trim());
+});
 document.getElementById("form").addEventListener("input", refresh);
 document.getElementById("form").addEventListener("change", refresh);
 document.getElementById("form").addEventListener("submit", e => e.preventDefault());
@@ -1317,10 +1403,9 @@ document.getElementById("form").addEventListener("submit", e => e.preventDefault
 /* ================= boot ================= */
 restoreDraft();
 const dateEl = document.querySelector('[data-key="date"]');
-if (dateEl && !dateEl.value) {
-  const now = new Date();
-  dateEl.value = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
-}
+if (dateEl && !dateEl.value) dateEl.value = todayIso();
+const trainerEl = document.querySelector('[data-key="trainer"]');
+if (trainerEl && !trainerEl.value) trainerEl.value = rememberedTrainer();
 updateSaveBar();
 refresh();
 
@@ -1343,6 +1428,12 @@ getArtifactCap().then(cap => {
   if (pending && MODE === "shared") {
     if (visitExists(DB, pending)) {
       sessionStorage.removeItem(PENDING_KEY);
+      const owner = DB.clients.find(c => c.visits.some(v => v.id === pending.visitId));
+      if (owner) {
+        const v = owner.visits.find(x => x.id === pending.visitId);
+        openedVisit = { clientId: owner.id, visitId: v.id, savedAt: v.savedAt, clientName: owner.name };
+        updateSaveBar();
+      }
       toast("Saved to portal ✓");
       showView("roster");
     } else if ((pending.attempts || 0) < 2) {
