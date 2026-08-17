@@ -1294,6 +1294,26 @@ function htmlToText(html) {
   tmp.querySelectorAll("p,tr,div").forEach(el => el.append("\n"));
   return tmp.textContent.replace(/\n{3,}/g, "\n\n").trim();
 }
+async function copyPlainText(text) {
+  if (!text) return false;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    try { await navigator.clipboard.writeText(text); return true; }
+    catch (e) { /* frame denies the async clipboard — use the fallback below */ }
+  }
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.setAttribute("readonly", "");
+  ta.style.cssText = "position:fixed;top:0;left:-9999px;opacity:0";
+  document.body.appendChild(ta);
+  let ok = false;
+  try {
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    ok = document.execCommand("copy");
+  } catch (e) { ok = false; }
+  ta.remove();
+  return ok;
+}
 async function copyRich(html, plain) {
   if (navigator.clipboard && window.ClipboardItem) {
     try {
@@ -1320,8 +1340,8 @@ document.getElementById("btnCopy").addEventListener("click", async () => {
   toast(ok ? "Email copied — paste into a Gmail compose window" : "Copy failed — select the preview and copy manually");
 });
 document.getElementById("btnSubject").addEventListener("click", async () => {
-  try { await navigator.clipboard.writeText(subjectLine(collect())); toast("Subject copied"); }
-  catch (e) { toast("Copy failed"); }
+  const ok = await copyPlainText(subjectLine(collect()));
+  toast(ok ? "Subject copied — paste into Gmail's subject line" : "Copy failed — select the subject above and copy manually");
 });
 document.getElementById("fmtClassic").addEventListener("click", () => {
   format = "classic";
