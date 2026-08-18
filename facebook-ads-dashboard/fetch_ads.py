@@ -253,8 +253,8 @@ def fetch_live(cfg, token):
             "links": {
                 "ads_manager": f"https://adsmanager.facebook.com/adsmanager/manage/ads"
                                f"?act={act_no}&selected_ad_ids={a['id']}",
-                "leads": (f"https://www.facebook.com/ads/lead_gen/export_csv/"
-                          f"?id={form_id}&type=recent" if form_id else None),
+                "leads": (f"https://business.facebook.com/latest/leads_center"
+                          f"?form_id={form_id}" if form_id else None),
             },
             "totals": {key: (summarize(by_range[key][a["id"]])
                              if a["id"] in by_range[key] else dict(empty))

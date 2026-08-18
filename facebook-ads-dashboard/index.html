@@ -460,7 +460,7 @@ function campaignCard(g) {
         const t = tot(ad);
         const leadsLink = ad.links && ad.links.leads;
         const leadBtn = leadsLink
-          ? `<a class="btn primary" href="${esc(leadsLink)}" target="_blank" rel="noopener" title="Download this instant form's responses (CSV)">Leads ⤓</a>`
+          ? `<a class="btn primary" href="${esc(leadsLink)}" target="_blank" rel="noopener" title="Open this instant form's responses in Meta Leads Center">Leads ↗</a>`
           : (ad.lead_source === "website" && gh
             ? `<a class="btn primary" href="${esc(gh)}" target="_blank" rel="noopener" title="Leads from this ad land in GoHighLevel">Leads · GHL ↗</a>` : "");
         return `<tr>

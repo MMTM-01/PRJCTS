@@ -32,7 +32,11 @@ pip install -r requirements.txt          # first time only
 python3 fetch_ads.py                     # needs META_ACCESS_TOKEN (see SETUP.md)
 ```
 
-…then republishes `data/dashboard.html` to the same artifact URL.
+…then republishes `data/dashboard.html` to the same artifact URL:
+
+> **Live dashboard:** <https://claude.ai/code/artifact/59467c34-6811-4aee-82a8-47dffc9287db>
+> (when republishing from a *new* session, pass this URL to the Artifact tool
+> so it updates in place instead of creating a second artifact)
 
 Useful variants:
 
@@ -48,9 +52,9 @@ morning) is planned once live credentials are in place.
 ## Where the "view leads" links go
 
 - **Instant-form ads** (forms filled inside Facebook/Instagram): the ad's
-  **Leads ⤓** button downloads that form's recent responses as a CSV from
-  Meta (you must be logged into Facebook as a Page admin). The header's
-  **Leads Center** link opens Meta's full leads inbox.
+  **Leads ↗** button opens that form's responses in Meta's Leads Center
+  (you must be logged into Facebook as a Page admin). The header's
+  **Leads Center** link opens the full leads inbox.
 - **Website/funnel ads**: leads land in GoHighLevel, so the button opens the
   GHL app (URL configured in `config.json` → `gohighlevel_url`). Per-ad
   filtering inside GHL is possible later if UTM parameters are set up on the

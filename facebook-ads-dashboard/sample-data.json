@@ -34,7 +34,7 @@
    "leadgen_form_id": "745000000000101",
    "links": {
     "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001001",
-    "leads": "https://www.facebook.com/ads/lead_gen/export_csv/?id=745000000000101&type=recent"
+    "leads": "https://business.facebook.com/latest/leads_center?form_id=745000000000101"
    },
    "totals": {
     "7d": {
@@ -315,7 +315,7 @@
    "leadgen_form_id": "745000000000101",
    "links": {
     "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001002",
-    "leads": "https://www.facebook.com/ads/lead_gen/export_csv/?id=745000000000101&type=recent"
+    "leads": "https://business.facebook.com/latest/leads_center?form_id=745000000000101"
    },
    "totals": {
     "7d": {
@@ -596,7 +596,7 @@
    "leadgen_form_id": "745000000000102",
    "links": {
     "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001003",
-    "leads": "https://www.facebook.com/ads/lead_gen/export_csv/?id=745000000000102&type=recent"
+    "leads": "https://business.facebook.com/latest/leads_center?form_id=745000000000102"
    },
    "totals": {
     "7d": {
