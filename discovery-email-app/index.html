@@ -834,8 +834,11 @@ const B_BODY = "font-family:'Raleway','Segoe UI',Arial,Helvetica,sans-serif;";
 const GOLD = "#B2963D", GOLD2 = "#D6BD5E", INKB = "#1C1A15", GRAYB = "#79787E", LINEB = "#E7E3D8", PAPER = "#FBFAF7";
 
 function bSection(title, inner) {
+  /* Section eyebrow: the rule sits on a td border because Word's engine
+     (classic Outlook) drops borders on divs. */
   return '<tr><td style="padding:26px 34px 0 34px">' +
-    '<div style="' + B_HEAD + 'font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:' + GOLD + ';border-bottom:1px solid ' + LINEB + ';padding-bottom:6px;margin-bottom:14px">' + title + "</div>" +
+    '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;margin-bottom:14px">' +
+    '<tr><td style="' + B_HEAD + 'font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:' + GOLD + ';border-bottom:1px solid ' + LINEB + ';padding-bottom:6px">' + title + "</td></tr></table>" +
     inner + "</td></tr>";
 }
 function bPara(inner, extra) {
@@ -844,14 +847,14 @@ function bPara(inner, extra) {
 function scoreBadge(score) {
   const n = +score;
   const bg = n >= 3 ? "#38761d" : n === 2 ? GOLD : n === 1 ? "#C77F2E" : "#B4443C";
-  return '<span style="' + B_HEAD + 'display:inline-block;min-width:22px;text-align:center;background:' + bg + ';color:#ffffff;border-radius:4px;padding:2px 7px;font-size:12.5px;font-weight:700">' + esc(score) + "</span>";
+  return '<span style="' + B_HEAD + 'display:inline-block;min-width:22px;text-align:center;background:' + bg + ';color:#ffffff;border-radius:4px;padding:2px 7px;font-size:12.5px;font-weight:700">&nbsp;' + esc(score) + "&nbsp;</span>";
 }
 
 function renderBranded(d, logoSrc) {
   const name = firstName(d.name);
   const rows = [];
 
-  rows.push('<tr><td style="background:#121212;padding:30px 34px 24px 34px;text-align:center;border-bottom:3px solid ' + GOLD + '">' +
+  rows.push('<tr><td bgcolor="#121212" style="background:#121212;padding:30px 34px 24px 34px;text-align:center;border-bottom:3px solid ' + GOLD + '">' +
     '<img src="' + logoSrc + '" alt="Momentum Fitness" width="240" height="48" style="display:inline-block;width:240px;max-width:80%;height:auto">' +
     '<div style="' + B_HEAD + 'margin-top:16px;font-size:11.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:' + GOLD2 + '">Your Post-Discovery Roadmap</div>' +
     (d.name ? '<div style="' + B_BODY + 'margin-top:6px;font-size:13px;color:#A9A8AD">Prepared for ' + esc(d.name) + (d.date ? " · " + esc(niceDate(d.date)) : "") + "</div>" : "") +
@@ -869,9 +872,10 @@ function renderBranded(d, logoSrc) {
     if (d.goal3mo) inner += bPara("<em>Your 3-month goal, in your own words:</em> “" + nl2br(d.goal3mo) + "”");
     inner += '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse">';
     goals.forEach((g, i) => {
-      inner += '<tr><td style="width:34px;padding:6px 0;vertical-align:top">' +
-        '<span style="' + B_HEAD + 'display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;background:' + GOLD + ';color:#ffffff;border-radius:12px;font-size:13px;font-weight:700">' + (i + 1) + "</span></td>" +
-        '<td style="padding:6px 0;' + B_BODY + 'font-size:15px;line-height:1.55;color:' + INKB + '">' + esc(g) + "</td></tr>";
+      inner += '<tr><td width="24" bgcolor="' + GOLD + '" style="width:24px;background:' + GOLD + ';border-radius:12px;text-align:center;vertical-align:middle;' + B_HEAD + 'color:#ffffff;font-size:13px;font-weight:700;padding:3px 0">' + (i + 1) + "</td>" +
+        '<td width="12" style="width:12px;font-size:1px;line-height:1px">&nbsp;</td>' +
+        '<td style="padding:6px 0;' + B_BODY + 'font-size:15px;line-height:1.55;color:' + INKB + '">' + esc(g) + "</td></tr>" +
+        '<tr><td colspan="3" style="font-size:4px;line-height:4px">&nbsp;</td></tr>';
     });
     inner += "</table>";
     rows.push(bSection("What We Uncovered", inner));
@@ -879,19 +883,24 @@ function renderBranded(d, logoSrc) {
 
   const weak = ffaWeaknesses(d);
   if (weak.length) {
-    let chips = weak.map(w =>
-      '<span style="' + B_HEAD + 'display:inline-block;margin:0 8px 8px 0;padding:6px 12px;border:1px solid ' + GOLD + ';border-radius:999px;font-size:13px;font-weight:600;color:' + INKB + ';background:#F6F1DF">' + esc(w.name) + "</span>").join("");
-    rows.push(bSection("Force Field Analysis · Where We’ll Build First", bPara("Comparing your ideal self to where you are today, these came through as the biggest opportunities:") + "<div>" + chips + "</div>"));
+    /* chips as bordered tds — span borders/padding vanish in Word's engine */
+    let chips = '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>' +
+      weak.map(w =>
+        '<td bgcolor="#F6F1DF" style="background:#F6F1DF;border:1px solid ' + GOLD + ';border-radius:999px;padding:6px 12px;' + B_HEAD + 'font-size:13px;font-weight:600;color:' + INKB + ';white-space:nowrap">' + esc(w.name) + "</td>"
+      ).join('<td width="8" style="width:8px;font-size:1px">&nbsp;</td>') +
+      "</tr></table>";
+    rows.push(bSection("Force Field Analysis · Where We’ll Build First", bPara("Comparing your ideal self to where you are today, these came through as the biggest opportunities:") + chips));
   }
 
   const frictions = [[d.friction1, d.resource1], [d.friction2, d.resource2]].filter(f => f[0] || f[1]);
   if (frictions.length) {
     let inner = "";
     frictions.forEach(f => {
-      inner += '<div style="border-left:3px solid ' + GOLD + ';background:' + PAPER + ';padding:12px 16px;margin-bottom:12px">' +
+      inner += '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;margin-bottom:12px">' +
+        '<tr><td bgcolor="' + PAPER + '" style="background:' + PAPER + ';border-left:3px solid ' + GOLD + ';padding:12px 16px">' +
         (f[0] ? '<div style="' + B_BODY + 'font-size:14.5px;color:' + INKB + '"><strong>Friction:</strong> ' + esc(f[0]) + "</div>" : "") +
         (f[1] ? '<div style="' + B_BODY + 'font-size:14.5px;color:' + INKB + ';margin-top:4px"><strong style="color:' + GOLD + '">→ Our resource:</strong> ' + esc(f[1]) + "</div>" : "") +
-        "</div>";
+        "</td></tr></table>";
     });
     rows.push(bSection("Friction Points &amp; Resources", inner));
   }
@@ -919,9 +928,9 @@ function renderBranded(d, logoSrc) {
     if (obs.length) inner += bPara(obs.join("<br>"));
     if (testRows.length) {
       inner += '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid ' + LINEB + '">' +
-        '<tr><td style="' + B_HEAD + 'background:#121212;color:' + GOLD2 + ';font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px">Movement Test</td>' +
-        '<td style="' + B_HEAD + 'background:#121212;color:' + GOLD2 + ';font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px">Notes</td>' +
-        '<td style="' + B_HEAD + 'background:#121212;color:' + GOLD2 + ';font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px;text-align:center">Score</td></tr>';
+        '<tr><td bgcolor="#121212" style="' + B_HEAD + 'background:#121212;color:' + GOLD2 + ';font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px">Movement Test</td>' +
+        '<td bgcolor="#121212" style="' + B_HEAD + 'background:#121212;color:' + GOLD2 + ';font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px">Notes</td>' +
+        '<td bgcolor="#121212" style="' + B_HEAD + 'background:#121212;color:' + GOLD2 + ';font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px;text-align:center">Score</td></tr>';
       testRows.forEach((r, i) => {
         const bg = i % 2 ? PAPER : "#ffffff";
         inner += '<tr><td style="' + B_BODY + 'font-size:13.5px;font-weight:600;color:' + INKB + ';padding:8px 12px;border-top:1px solid ' + LINEB + ";background:" + bg + '">' + esc(r.label) + "</td>" +
@@ -931,7 +940,7 @@ function renderBranded(d, logoSrc) {
       inner += "</table>";
       if (total !== null) {
         inner += '<div style="' + B_HEAD + 'margin-top:12px;text-align:right;font-size:13.5px;font-weight:700;color:' + INKB + '">Total: ' +
-          '<span style="background:#121212;color:' + GOLD2 + ';border-radius:999px;padding:4px 14px;margin-left:6px">' + total + " / 27</span>" +
+          '<span style="background:#121212;color:' + GOLD2 + ';border-radius:999px;padding:4px 14px;margin-left:6px">&nbsp;' + total + " / 27&nbsp;</span>" +
           '<span style="' + B_BODY + 'font-weight:400;color:' + GRAYB + ';font-size:12.5px;display:block;margin-top:6px">27+ represents a functional baseline.</span></div>';
       }
     }
@@ -969,17 +978,20 @@ function renderBranded(d, logoSrc) {
   cta += '<div style="' + B_BODY + 'font-size:15.5px;line-height:1.6;color:#ffffff">' + (d.firstStep ? nl2br(d.firstStep) : "Reply to this email and we’ll lock in your start date.") + "</div>";
   if (d.visitPlan) cta += '<div style="' + B_BODY + 'font-size:13.5px;line-height:1.6;color:#A9A8AD;margin-top:10px"><strong style="color:' + GOLD2 + '">During that visit we will:</strong> ' + nl2br(d.visitPlan) + "</div>";
   if (d.followUp) cta += '<div style="' + B_BODY + 'font-size:13.5px;color:#A9A8AD;margin-top:10px">We’ll follow up ' + esc(d.followUp) + " any questions or gather more data.</div>";
-  cta += '<div style="margin-top:16px"><a href="tel:8173190093" style="' + B_HEAD + 'display:inline-block;background:' + GOLD + ';color:#171308;text-decoration:none;font-size:13.5px;font-weight:700;letter-spacing:1px;padding:11px 26px;border-radius:4px">CALL ' + PHONE + "</a></div>";
-  rows.push('<tr><td style="padding:26px 34px"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%"><tr><td style="background:#121212;padding:24px 28px;text-align:center;border-radius:6px">' + cta + "</td></tr></table></td></tr>");
+  /* Button as a padded gold td — Word ignores padding on <a> elements. */
+  cta += '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:16px auto 0 auto"><tr>' +
+    '<td bgcolor="' + GOLD + '" style="background:' + GOLD + ';border-radius:4px;padding:11px 26px;text-align:center">' +
+    '<a href="tel:8173190093" style="' + B_HEAD + 'color:#171308;text-decoration:none;font-size:13.5px;font-weight:700;letter-spacing:1px">CALL ' + PHONE + "</a></td></tr></table>";
+  rows.push('<tr><td style="padding:26px 34px"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%"><tr><td bgcolor="#121212" style="background:#121212;padding:24px 28px;text-align:center;border-radius:6px">' + cta + "</td></tr></table></td></tr>");
 
   rows.push('<tr><td style="padding:0 34px 28px 34px">' +
     bPara("Momentum is honored to walk this road with you — and <strong>you’ve already taken the first step</strong>.") +
     (d.trainer ? bPara("<strong>" + esc(d.trainer) + "</strong><br><span style=\"color:" + GRAYB + ";font-size:13.5px\">Momentum Fitness</span>", "margin-bottom:0") : "") +
     "</td></tr>");
-  rows.push('<tr><td style="background:' + PAPER + ';border-top:1px solid ' + LINEB + ';padding:16px 34px;text-align:center;' + B_BODY + 'font-size:12px;color:' + GRAYB + '">Momentum Fitness · More Than a Gym: Physical Therapy + Training · ' + PHONE + " · themomentumfitness.com</td></tr>");
+  rows.push('<tr><td bgcolor="' + PAPER + '" style="background:' + PAPER + ';border-top:1px solid ' + LINEB + ';padding:16px 34px;text-align:center;' + B_BODY + 'font-size:12px;color:' + GRAYB + '">Momentum Fitness · More Than a Gym: Physical Therapy + Training · ' + PHONE + " · themomentumfitness.com</td></tr>");
 
-  return '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#EFECE3;padding:0"><tr><td align="center" style="padding:24px 10px">' +
-    '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background:#ffffff;border:1px solid ' + LINEB + '">' +
+  return '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#EFECE3" style="width:100%;background:#EFECE3;padding:0"><tr><td align="center" style="padding:24px 10px">' +
+    '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" bgcolor="#ffffff" style="width:600px;max-width:100%;background:#ffffff;border:1px solid ' + LINEB + '">' +
     rows.join("") + "</table></td></tr></table>";
 }
 
@@ -1410,7 +1422,7 @@ async function copyRich(html, plain) {
 document.getElementById("btnCopy").addEventListener("click", async () => {
   const html = buildEmailHtml("copy");
   const ok = await copyRich(html, htmlToText(html));
-  toast(ok ? "Email copied — paste into a Gmail compose window" : "Copy failed — select the preview and copy manually");
+  toast(ok ? "Email copied — paste into Gmail or Outlook" : "Copy failed — select the preview and copy manually");
 });
 document.getElementById("btnSubject").addEventListener("click", async () => {
   const ok = await copyPlainText(subjectLine(collect()));
