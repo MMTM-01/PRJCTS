@@ -1,3 +1,24 @@
+# Python
 .venv/
-audit-run.log
+venv/
 __pycache__/
+*.py[cod]
+
+# Secrets — never commit these
+.env
+.env.*
+!.env.example
+
+# Logs and scratch output
+*.log
+audit-run.log
+
+# Node (for future JS projects)
+node_modules/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

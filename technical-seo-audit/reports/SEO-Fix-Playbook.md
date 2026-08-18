@@ -233,6 +233,7 @@ Validate everything at **https://search.google.com/test/rich-results** — paste
 After you've made changes, you can **re-run the same audit** that produced this list to see the numbers drop:
 
 ```bash
+cd technical-seo-audit
 .venv/bin/python seo_audit.py
 ```
 

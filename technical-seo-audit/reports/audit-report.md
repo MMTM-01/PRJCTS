@@ -10,7 +10,7 @@ The foundation is solid, and several things many local sites get wrong are alrea
 - **Every page loads correctly** — no 404s, no server errors, no redirect chains.
 - **Canonical tags are clean** on all 62 pages (no mismatches, none missing).
 - **The sitemap and robots.txt work** and are properly linked.
-- **Local business schema is already live on ~50 pages** — `ExerciseGym` + `Organization` with the correct street address, geo-coordinates, phone number, logo, and social profiles. (This means the `schema-localbusiness.json` file in this folder is now a nice-to-have, not a must-do — see item 9 for the two things the existing schema still gets wrong.)
+- **Local business schema is already live on ~50 pages** — `ExerciseGym` + `Organization` with the correct street address, geo-coordinates, phone number, logo, and social profiles. (This means the `schema-localbusiness.json` file in the project folder is now a nice-to-have, not a must-do — see item 9 for the two things the existing schema still gets wrong.)
 - **Nothing is accidentally noindexed.**
 
 Below are the top 10 problems, ranked by how much fixing each one is likely to move the needle.

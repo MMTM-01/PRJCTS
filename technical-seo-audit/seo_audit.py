@@ -10,7 +10,8 @@ What it does, in order:
           respects robots.txt) and extracts all technical SEO fields.
   Step 3: Runs sitewide analysis (duplicates, unoptimized titles, schema
           summary, heavy media, broken links, redirect chains, orphan pages).
-  Step 4: Writes audit-data.csv, audit-report.md, and audit-raw.json.
+  Step 4: Writes reports/audit-data.csv and reports/audit-raw.json
+          (override the destination with --out-dir).
 
 Usage:
   .venv/bin/python seo_audit.py            # full audit
@@ -21,6 +22,7 @@ import argparse
 import csv
 import io
 import json
+import os
 import re
 import sys
 import time
@@ -456,7 +458,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-pages", type=int, default=None,
                     help="limit crawl size (smoke testing)")
-    ap.add_argument("--out-dir", default=".")
+    ap.add_argument("--out-dir", default="reports",
+                    help="where to write audit-data.csv / audit-raw.json")
     args = ap.parse_args()
 
     session = requests.Session()
@@ -522,6 +525,7 @@ def main():
 
     print("== Step 4: writing deliverables ==")
     out = args.out_dir.rstrip("/")
+    os.makedirs(out, exist_ok=True)
     write_csv(pages, link_status, media_sizes, f"{out}/audit-data.csv")
     with open(f"{out}/audit-raw.json", "w", encoding="utf-8") as f:
         json.dump({"pages": pages, "analysis": analysis,
