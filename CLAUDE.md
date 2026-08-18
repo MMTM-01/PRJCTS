@@ -50,6 +50,18 @@ client records, and republishing this file over it wipes them. Keep `#db`
 empty in every commit, and flag the sync step whenever the user plans to
 publish. See the project README for the full procedure.
 
+### `facebook-ads-dashboard/`
+"Momentum Ad Pulse" — a read-only dashboard of every Facebook/Meta ad with
+spend, leads, CPL, reach, and daily trends, published as a Claude Artifact.
+`fetch_ads.py` (Python 3 + `requests`) pulls from the Meta Marketing API
+(token in the `META_ACCESS_TOKEN` env var — never in the repo) and injects
+the data into a copy of `index.html` at `data/dashboard.html`, which is what
+gets republished. The committed `index.html` keeps its `<script id="adsdata">`
+block empty, and everything under `data/` is gitignored. Republishing this
+artifact is safe — it holds no user-entered state. `--sample` runs everything
+from `sample-data.json` with no credentials. See the project README and
+SETUP.md.
+
 ## Data and secrets
 
 - Never commit API keys, passwords, or `.env` files.

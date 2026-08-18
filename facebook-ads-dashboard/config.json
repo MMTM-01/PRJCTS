@@ -1,0 +1,9 @@
+{
+  "graph_api_version": "v23.0",
+  "ad_account_id": "",
+  "timezone": "America/Chicago",
+  "currency": "USD",
+  "gohighlevel_url": "",
+  "include_paused": true,
+  "max_thumb_kb": 45
+}

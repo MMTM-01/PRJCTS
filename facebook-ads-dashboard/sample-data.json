@@ -1,0 +1,1985 @@
+{
+ "v": 1,
+ "sample": true,
+ "fetched_at": "2026-08-18T08:00:00-05:00",
+ "account": {
+  "id": "act_120210000000001",
+  "name": "Momentum Fitness (sample data)",
+  "currency": "USD",
+  "timezone": "America/Chicago"
+ },
+ "links": {
+  "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001",
+  "leads_center": "https://business.facebook.com/latest/leads_center",
+  "gohighlevel": "https://app.gohighlevel.com/"
+ },
+ "ads": [
+  {
+   "id": "120210000000001001",
+   "name": "Challenge \u2014 Transformation Carousel",
+   "status": "ACTIVE",
+   "campaign": {
+    "id": "23850000000000101",
+    "name": "6-Week Challenge \u2014 Lead Gen",
+    "objective": "OUTCOME_LEADS"
+   },
+   "adset": {
+    "id": "238600000000001",
+    "name": "Challenge \u2014 Lookalike 3%",
+    "daily_budget": 35.0
+   },
+   "created_time": "2026-06-14",
+   "thumb": "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2796%27 height=%2796%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23e8590c%27/%3E%3Cstop offset=%271%27 stop-color=%27%235f3dc4%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2796%27 height=%2796%27 fill=%27url(%23g)%27/%3E%3Ctext x=%2748%27 y=%2756%27 font-family=%27sans-serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27white%27 fill-opacity=%270.9%27 text-anchor=%27middle%27%3E6W%3C/text%3E%3C/svg%3E",
+   "lead_source": "instant_form",
+   "leadgen_form_id": "745000000000101",
+   "links": {
+    "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001001",
+    "leads": "https://www.facebook.com/ads/lead_gen/export_csv/?id=745000000000101&type=recent"
+   },
+   "totals": {
+    "7d": {
+     "spend": 235.02,
+     "leads": 17,
+     "impressions": 18420,
+     "clicks": 321,
+     "reach": 8782,
+     "frequency": 2.1,
+     "cpl": 13.82,
+     "ctr": 1.74,
+     "cpc": 0.73
+    },
+    "14d": {
+     "spend": 463.53,
+     "leads": 31,
+     "impressions": 37733,
+     "clicks": 688,
+     "reach": 19782,
+     "frequency": 1.91,
+     "cpl": 14.95,
+     "ctr": 1.82,
+     "cpc": 0.67
+    },
+    "30d": {
+     "spend": 1013.99,
+     "leads": 71,
+     "impressions": 84282,
+     "clicks": 1556,
+     "reach": 47059,
+     "frequency": 1.79,
+     "cpl": 14.28,
+     "ctr": 1.85,
+     "cpc": 0.65
+    },
+    "life": {
+     "spend": 2636.37,
+     "leads": 184,
+     "impressions": 219133,
+     "clicks": 4045,
+     "reach": 119440,
+     "frequency": 1.83,
+     "cpl": 14.33,
+     "ctr": 1.85,
+     "cpc": 0.65
+    }
+   },
+   "daily": [
+    {
+     "d": "2026-07-19",
+     "spend": 34.66,
+     "leads": 4,
+     "impressions": 3264,
+     "clicks": 66
+    },
+    {
+     "d": "2026-07-20",
+     "spend": 39.31,
+     "leads": 2,
+     "impressions": 3386,
+     "clicks": 55
+    },
+    {
+     "d": "2026-07-21",
+     "spend": 33.22,
+     "leads": 2,
+     "impressions": 3165,
+     "clicks": 62
+    },
+    {
+     "d": "2026-07-22",
+     "spend": 33.53,
+     "leads": 3,
+     "impressions": 2475,
+     "clicks": 40
+    },
+    {
+     "d": "2026-07-23",
+     "spend": 36.63,
+     "leads": 2,
+     "impressions": 3564,
+     "clicks": 77
+    },
+    {
+     "d": "2026-07-24",
+     "spend": 31.06,
+     "leads": 3,
+     "impressions": 2260,
+     "clicks": 44
+    },
+    {
+     "d": "2026-07-25",
+     "spend": 32.98,
+     "leads": 2,
+     "impressions": 2296,
+     "clicks": 42
+    },
+    {
+     "d": "2026-07-26",
+     "spend": 33.62,
+     "leads": 2,
+     "impressions": 2434,
+     "clicks": 47
+    },
+    {
+     "d": "2026-07-27",
+     "spend": 39.68,
+     "leads": 4,
+     "impressions": 3624,
+     "clicks": 60
+    },
+    {
+     "d": "2026-07-28",
+     "spend": 33.4,
+     "leads": 3,
+     "impressions": 2634,
+     "clicks": 48
+    },
+    {
+     "d": "2026-07-29",
+     "spend": 31.46,
+     "leads": 2,
+     "impressions": 2217,
+     "clicks": 43
+    },
+    {
+     "d": "2026-07-30",
+     "spend": 34.3,
+     "leads": 3,
+     "impressions": 3324,
+     "clicks": 60
+    },
+    {
+     "d": "2026-07-31",
+     "spend": 38.82,
+     "leads": 2,
+     "impressions": 3003,
+     "clicks": 62
+    },
+    {
+     "d": "2026-08-01",
+     "spend": 32.65,
+     "leads": 2,
+     "impressions": 2947,
+     "clicks": 52
+    },
+    {
+     "d": "2026-08-02",
+     "spend": 29.57,
+     "leads": 2,
+     "impressions": 2670,
+     "clicks": 53
+    },
+    {
+     "d": "2026-08-03",
+     "spend": 35.57,
+     "leads": 2,
+     "impressions": 3286,
+     "clicks": 57
+    },
+    {
+     "d": "2026-08-04",
+     "spend": 37.78,
+     "leads": 3,
+     "impressions": 2700,
+     "clicks": 49
+    },
+    {
+     "d": "2026-08-05",
+     "spend": 29.67,
+     "leads": 1,
+     "impressions": 2980,
+     "clicks": 48
+    },
+    {
+     "d": "2026-08-06",
+     "spend": 28.36,
+     "leads": 2,
+     "impressions": 2442,
+     "clicks": 40
+    },
+    {
+     "d": "2026-08-07",
+     "spend": 31.59,
+     "leads": 1,
+     "impressions": 2200,
+     "clicks": 46
+    },
+    {
+     "d": "2026-08-08",
+     "spend": 24.48,
+     "leads": 1,
+     "impressions": 2008,
+     "clicks": 35
+    },
+    {
+     "d": "2026-08-09",
+     "spend": 34.67,
+     "leads": 3,
+     "impressions": 2946,
+     "clicks": 63
+    },
+    {
+     "d": "2026-08-10",
+     "spend": 41.96,
+     "leads": 3,
+     "impressions": 4037,
+     "clicks": 86
+    },
+    {
+     "d": "2026-08-11",
+     "spend": 41.89,
+     "leads": 3,
+     "impressions": 3339,
+     "clicks": 56
+    },
+    {
+     "d": "2026-08-12",
+     "spend": 36.12,
+     "leads": 2,
+     "impressions": 2972,
+     "clicks": 48
+    },
+    {
+     "d": "2026-08-13",
+     "spend": 30.91,
+     "leads": 3,
+     "impressions": 2224,
+     "clicks": 46
+    },
+    {
+     "d": "2026-08-14",
+     "spend": 30.71,
+     "leads": 3,
+     "impressions": 2157,
+     "clicks": 35
+    },
+    {
+     "d": "2026-08-15",
+     "spend": 29.55,
+     "leads": 2,
+     "impressions": 2216,
+     "clicks": 37
+    },
+    {
+     "d": "2026-08-16",
+     "spend": 32.71,
+     "leads": 2,
+     "impressions": 2359,
+     "clicks": 43
+    },
+    {
+     "d": "2026-08-17",
+     "spend": 33.13,
+     "leads": 2,
+     "impressions": 3153,
+     "clicks": 56
+    }
+   ]
+  },
+  {
+   "id": "120210000000001002",
+   "name": "Challenge \u2014 Coach Dana Video",
+   "status": "ACTIVE",
+   "campaign": {
+    "id": "23850000000000101",
+    "name": "6-Week Challenge \u2014 Lead Gen",
+    "objective": "OUTCOME_LEADS"
+   },
+   "adset": {
+    "id": "238600000000002",
+    "name": "Challenge \u2014 Lookalike 3%",
+    "daily_budget": 35.0
+   },
+   "created_time": "2026-06-14",
+   "thumb": "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2796%27 height=%2796%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%231971c2%27/%3E%3Cstop offset=%271%27 stop-color=%27%230ca678%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2796%27 height=%2796%27 fill=%27url(%23g)%27/%3E%3Ctext x=%2748%27 y=%2756%27 font-family=%27sans-serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27white%27 fill-opacity=%270.9%27 text-anchor=%27middle%27%3E6W%3C/text%3E%3C/svg%3E",
+   "lead_source": "instant_form",
+   "leadgen_form_id": "745000000000101",
+   "links": {
+    "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001002",
+    "leads": "https://www.facebook.com/ads/lead_gen/export_csv/?id=745000000000101&type=recent"
+   },
+   "totals": {
+    "7d": {
+     "spend": 203.36,
+     "leads": 19,
+     "impressions": 17306,
+     "clicks": 397,
+     "reach": 10607,
+     "frequency": 1.63,
+     "cpl": 10.7,
+     "ctr": 2.29,
+     "cpc": 0.51
+    },
+    "14d": {
+     "spend": 416.49,
+     "leads": 39,
+     "impressions": 35912,
+     "clicks": 841,
+     "reach": 22166,
+     "frequency": 1.62,
+     "cpl": 10.68,
+     "ctr": 2.34,
+     "cpc": 0.5
+    },
+    "30d": {
+     "spend": 898.47,
+     "leads": 91,
+     "impressions": 76499,
+     "clicks": 1804,
+     "reach": 44488,
+     "frequency": 1.72,
+     "cpl": 9.87,
+     "ctr": 2.36,
+     "cpc": 0.5
+    },
+    "life": {
+     "spend": 2336.02,
+     "leads": 236,
+     "impressions": 198897,
+     "clicks": 4690,
+     "reach": 97286,
+     "frequency": 2.04,
+     "cpl": 9.9,
+     "ctr": 2.36,
+     "cpc": 0.5
+    }
+   },
+   "daily": [
+    {
+     "d": "2026-07-19",
+     "spend": 25.04,
+     "leads": 3,
+     "impressions": 2012,
+     "clicks": 44
+    },
+    {
+     "d": "2026-07-20",
+     "spend": 29.21,
+     "leads": 4,
+     "impressions": 2743,
+     "clicks": 73
+    },
+    {
+     "d": "2026-07-21",
+     "spend": 36.69,
+     "leads": 5,
+     "impressions": 2856,
+     "clicks": 62
+    },
+    {
+     "d": "2026-07-22",
+     "spend": 25.16,
+     "leads": 2,
+     "impressions": 2120,
+     "clicks": 55
+    },
+    {
+     "d": "2026-07-23",
+     "spend": 32.21,
+     "leads": 4,
+     "impressions": 2763,
+     "clicks": 64
+    },
+    {
+     "d": "2026-07-24",
+     "spend": 28.66,
+     "leads": 3,
+     "impressions": 1987,
+     "clicks": 41
+    },
+    {
+     "d": "2026-07-25",
+     "spend": 25.19,
+     "leads": 3,
+     "impressions": 2344,
+     "clicks": 51
+    },
+    {
+     "d": "2026-07-26",
+     "spend": 28.46,
+     "leads": 3,
+     "impressions": 2648,
+     "clicks": 71
+    },
+    {
+     "d": "2026-07-27",
+     "spend": 31.82,
+     "leads": 3,
+     "impressions": 3262,
+     "clicks": 90
+    },
+    {
+     "d": "2026-07-28",
+     "spend": 36.41,
+     "leads": 3,
+     "impressions": 2649,
+     "clicks": 57
+    },
+    {
+     "d": "2026-07-29",
+     "spend": 28.85,
+     "leads": 3,
+     "impressions": 2945,
+     "clicks": 68
+    },
+    {
+     "d": "2026-07-30",
+     "spend": 34.07,
+     "leads": 4,
+     "impressions": 2893,
+     "clicks": 67
+    },
+    {
+     "d": "2026-07-31",
+     "spend": 33.77,
+     "leads": 3,
+     "impressions": 2579,
+     "clicks": 55
+    },
+    {
+     "d": "2026-08-01",
+     "spend": 24.19,
+     "leads": 2,
+     "impressions": 1980,
+     "clicks": 51
+    },
+    {
+     "d": "2026-08-02",
+     "spend": 24.38,
+     "leads": 2,
+     "impressions": 1771,
+     "clicks": 38
+    },
+    {
+     "d": "2026-08-03",
+     "spend": 37.87,
+     "leads": 5,
+     "impressions": 3035,
+     "clicks": 76
+    },
+    {
+     "d": "2026-08-04",
+     "spend": 29.38,
+     "leads": 4,
+     "impressions": 2738,
+     "clicks": 67
+    },
+    {
+     "d": "2026-08-05",
+     "spend": 30.25,
+     "leads": 3,
+     "impressions": 2496,
+     "clicks": 67
+    },
+    {
+     "d": "2026-08-06",
+     "spend": 25.91,
+     "leads": 2,
+     "impressions": 2257,
+     "clicks": 56
+    },
+    {
+     "d": "2026-08-07",
+     "spend": 26.91,
+     "leads": 3,
+     "impressions": 2728,
+     "clicks": 64
+    },
+    {
+     "d": "2026-08-08",
+     "spend": 30.78,
+     "leads": 2,
+     "impressions": 2913,
+     "clicks": 64
+    },
+    {
+     "d": "2026-08-09",
+     "spend": 33.52,
+     "leads": 3,
+     "impressions": 2954,
+     "clicks": 63
+    },
+    {
+     "d": "2026-08-10",
+     "spend": 36.38,
+     "leads": 3,
+     "impressions": 2520,
+     "clicks": 63
+    },
+    {
+     "d": "2026-08-11",
+     "spend": 26.73,
+     "leads": 2,
+     "impressions": 2085,
+     "clicks": 56
+    },
+    {
+     "d": "2026-08-12",
+     "spend": 25.18,
+     "leads": 3,
+     "impressions": 2052,
+     "clicks": 45
+    },
+    {
+     "d": "2026-08-13",
+     "spend": 30.09,
+     "leads": 2,
+     "impressions": 2375,
+     "clicks": 52
+    },
+    {
+     "d": "2026-08-14",
+     "spend": 28.88,
+     "leads": 3,
+     "impressions": 2899,
+     "clicks": 67
+    },
+    {
+     "d": "2026-08-15",
+     "spend": 24.0,
+     "leads": 3,
+     "impressions": 1892,
+     "clicks": 42
+    },
+    {
+     "d": "2026-08-16",
+     "spend": 31.52,
+     "leads": 3,
+     "impressions": 3300,
+     "clicks": 69
+    },
+    {
+     "d": "2026-08-17",
+     "spend": 36.96,
+     "leads": 3,
+     "impressions": 2703,
+     "clicks": 66
+    }
+   ]
+  },
+  {
+   "id": "120210000000001003",
+   "name": "Challenge \u2014 Before/After Statics",
+   "status": "ACTIVE",
+   "campaign": {
+    "id": "23850000000000101",
+    "name": "6-Week Challenge \u2014 Lead Gen",
+    "objective": "OUTCOME_LEADS"
+   },
+   "adset": {
+    "id": "238600000000003",
+    "name": "Challenge \u2014 Broad DFW 25-54",
+    "daily_budget": 25.0
+   },
+   "created_time": "2026-06-14",
+   "thumb": "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2796%27 height=%2796%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23c2255c%27/%3E%3Cstop offset=%271%27 stop-color=%27%23e8590c%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2796%27 height=%2796%27 fill=%27url(%23g)%27/%3E%3Ctext x=%2748%27 y=%2756%27 font-family=%27sans-serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27white%27 fill-opacity=%270.9%27 text-anchor=%27middle%27%3E6W%3C/text%3E%3C/svg%3E",
+   "lead_source": "instant_form",
+   "leadgen_form_id": "745000000000102",
+   "links": {
+    "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001003",
+    "leads": "https://www.facebook.com/ads/lead_gen/export_csv/?id=745000000000102&type=recent"
+   },
+   "totals": {
+    "7d": {
+     "spend": 160.15,
+     "leads": 6,
+     "impressions": 12710,
+     "clicks": 171,
+     "reach": 6708,
+     "frequency": 1.89,
+     "cpl": 26.69,
+     "ctr": 1.35,
+     "cpc": 0.94
+    },
+    "14d": {
+     "spend": 320.16,
+     "leads": 14,
+     "impressions": 26578,
+     "clicks": 360,
+     "reach": 15624,
+     "frequency": 1.7,
+     "cpl": 22.87,
+     "ctr": 1.35,
+     "cpc": 0.89
+    },
+    "30d": {
+     "spend": 650.4,
+     "leads": 31,
+     "impressions": 54932,
+     "clicks": 757,
+     "reach": 34491,
+     "frequency": 1.59,
+     "cpl": 20.98,
+     "ctr": 1.38,
+     "cpc": 0.86
+    },
+    "life": {
+     "spend": 1691.04,
+     "leads": 80,
+     "impressions": 142823,
+     "clicks": 1968,
+     "reach": 83661,
+     "frequency": 1.71,
+     "cpl": 21.14,
+     "ctr": 1.38,
+     "cpc": 0.86
+    }
+   },
+   "daily": [
+    {
+     "d": "2026-07-19",
+     "spend": 23.24,
+     "leads": 1,
+     "impressions": 2202,
+     "clicks": 28
+    },
+    {
+     "d": "2026-07-20",
+     "spend": 20.16,
+     "leads": 1,
+     "impressions": 1747,
+     "clicks": 25
+    },
+    {
+     "d": "2026-07-21",
+     "spend": 20.6,
+     "leads": 1,
+     "impressions": 1432,
+     "clicks": 21
+    },
+    {
+     "d": "2026-07-22",
+     "spend": 23.88,
+     "leads": 2,
+     "impressions": 2139,
+     "clicks": 33
+    },
+    {
+     "d": "2026-07-23",
+     "spend": 23.28,
+     "leads": 1,
+     "impressions": 2149,
+     "clicks": 32
+    },
+    {
+     "d": "2026-07-24",
+     "spend": 18.04,
+     "leads": 1,
+     "impressions": 1699,
+     "clicks": 26
+    },
+    {
+     "d": "2026-07-25",
+     "spend": 18.63,
+     "leads": 1,
+     "impressions": 1751,
+     "clicks": 21
+    },
+    {
+     "d": "2026-07-26",
+     "spend": 18.68,
+     "leads": 1,
+     "impressions": 1303,
+     "clicks": 17
+    },
+    {
+     "d": "2026-07-27",
+     "spend": 24.72,
+     "leads": 2,
+     "impressions": 2029,
+     "clicks": 32
+    },
+    {
+     "d": "2026-07-28",
+     "spend": 20.26,
+     "leads": 0,
+     "impressions": 1415,
+     "clicks": 18
+    },
+    {
+     "d": "2026-07-29",
+     "spend": 18.04,
+     "leads": 1,
+     "impressions": 1629,
+     "clicks": 23
+    },
+    {
+     "d": "2026-07-30",
+     "spend": 21.09,
+     "leads": 1,
+     "impressions": 1957,
+     "clicks": 29
+    },
+    {
+     "d": "2026-07-31",
+     "spend": 17.23,
+     "leads": 1,
+     "impressions": 1315,
+     "clicks": 19
+    },
+    {
+     "d": "2026-08-01",
+     "spend": 20.06,
+     "leads": 1,
+     "impressions": 1564,
+     "clicks": 20
+    },
+    {
+     "d": "2026-08-02",
+     "spend": 19.59,
+     "leads": 1,
+     "impressions": 1780,
+     "clicks": 23
+    },
+    {
+     "d": "2026-08-03",
+     "spend": 22.74,
+     "leads": 1,
+     "impressions": 2243,
+     "clicks": 30
+    },
+    {
+     "d": "2026-08-04",
+     "spend": 27.25,
+     "leads": 1,
+     "impressions": 2166,
+     "clicks": 28
+    },
+    {
+     "d": "2026-08-05",
+     "spend": 21.36,
+     "leads": 1,
+     "impressions": 1833,
+     "clicks": 26
+    },
+    {
+     "d": "2026-08-06",
+     "spend": 22.17,
+     "leads": 1,
+     "impressions": 2097,
+     "clicks": 29
+    },
+    {
+     "d": "2026-08-07",
+     "spend": 24.03,
+     "leads": 1,
+     "impressions": 2421,
+     "clicks": 34
+    },
+    {
+     "d": "2026-08-08",
+     "spend": 19.8,
+     "leads": 1,
+     "impressions": 1494,
+     "clicks": 22
+    },
+    {
+     "d": "2026-08-09",
+     "spend": 18.92,
+     "leads": 1,
+     "impressions": 1764,
+     "clicks": 24
+    },
+    {
+     "d": "2026-08-10",
+     "spend": 26.48,
+     "leads": 2,
+     "impressions": 2093,
+     "clicks": 26
+    },
+    {
+     "d": "2026-08-11",
+     "spend": 25.18,
+     "leads": 1,
+     "impressions": 1970,
+     "clicks": 23
+    },
+    {
+     "d": "2026-08-12",
+     "spend": 22.9,
+     "leads": 0,
+     "impressions": 1969,
+     "clicks": 24
+    },
+    {
+     "d": "2026-08-13",
+     "spend": 24.46,
+     "leads": 1,
+     "impressions": 2276,
+     "clicks": 35
+    },
+    {
+     "d": "2026-08-14",
+     "spend": 20.67,
+     "leads": 1,
+     "impressions": 1431,
+     "clicks": 20
+    },
+    {
+     "d": "2026-08-15",
+     "spend": 21.96,
+     "leads": 1,
+     "impressions": 1676,
+     "clicks": 23
+    },
+    {
+     "d": "2026-08-16",
+     "spend": 23.5,
+     "leads": 1,
+     "impressions": 1777,
+     "clicks": 24
+    },
+    {
+     "d": "2026-08-17",
+     "spend": 21.48,
+     "leads": 1,
+     "impressions": 1611,
+     "clicks": 22
+    }
+   ]
+  },
+  {
+   "id": "120210000000001004",
+   "name": "PT Intro \u2014 First Session Free",
+   "status": "ACTIVE",
+   "campaign": {
+    "id": "23850000000000102",
+    "name": "Personal Training Intro \u2014 Lead Gen",
+    "objective": "OUTCOME_LEADS"
+   },
+   "adset": {
+    "id": "238600000000004",
+    "name": "PT Intro \u2014 Gym Interest",
+    "daily_budget": 20.0
+   },
+   "created_time": "2026-06-14",
+   "thumb": "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2796%27 height=%2796%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%230b7285%27/%3E%3Cstop offset=%271%27 stop-color=%27%2366a80f%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2796%27 height=%2796%27 fill=%27url(%23g)%27/%3E%3Ctext x=%2748%27 y=%2756%27 font-family=%27sans-serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27white%27 fill-opacity=%270.9%27 text-anchor=%27middle%27%3EPT%3C/text%3E%3C/svg%3E",
+   "lead_source": "website",
+   "leadgen_form_id": null,
+   "links": {
+    "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001004",
+    "leads": null
+   },
+   "totals": {
+    "7d": {
+     "spend": 130.14,
+     "leads": 6,
+     "impressions": 10874,
+     "clicks": 182,
+     "reach": 5815,
+     "frequency": 1.87,
+     "cpl": 21.69,
+     "ctr": 1.67,
+     "cpc": 0.72
+    },
+    "14d": {
+     "spend": 260.43,
+     "leads": 11,
+     "impressions": 21017,
+     "clicks": 347,
+     "reach": 11609,
+     "frequency": 1.81,
+     "cpl": 23.68,
+     "ctr": 1.65,
+     "cpc": 0.75
+    },
+    "30d": {
+     "spend": 552.66,
+     "leads": 23,
+     "impressions": 44788,
+     "clicks": 731,
+     "reach": 24314,
+     "frequency": 1.84,
+     "cpl": 24.03,
+     "ctr": 1.63,
+     "cpc": 0.76
+    },
+    "life": {
+     "spend": 1436.92,
+     "leads": 59,
+     "impressions": 116448,
+     "clicks": 1900,
+     "reach": 65272,
+     "frequency": 1.78,
+     "cpl": 24.35,
+     "ctr": 1.63,
+     "cpc": 0.76
+    }
+   },
+   "daily": [
+    {
+     "d": "2026-07-19",
+     "spend": 16.52,
+     "leads": 1,
+     "impressions": 1620,
+     "clicks": 25
+    },
+    {
+     "d": "2026-07-20",
+     "spend": 21.57,
+     "leads": 0,
+     "impressions": 1869,
+     "clicks": 32
+    },
+    {
+     "d": "2026-07-21",
+     "spend": 19.55,
+     "leads": 1,
+     "impressions": 1393,
+     "clicks": 24
+    },
+    {
+     "d": "2026-07-22",
+     "spend": 19.27,
+     "leads": 1,
+     "impressions": 1689,
+     "clicks": 24
+    },
+    {
+     "d": "2026-07-23",
+     "spend": 17.04,
+     "leads": 1,
+     "impressions": 1194,
+     "clicks": 19
+    },
+    {
+     "d": "2026-07-24",
+     "spend": 19.6,
+     "leads": 1,
+     "impressions": 1848,
+     "clicks": 28
+    },
+    {
+     "d": "2026-07-25",
+     "spend": 15.83,
+     "leads": 1,
+     "impressions": 1227,
+     "clicks": 20
+    },
+    {
+     "d": "2026-07-26",
+     "spend": 15.83,
+     "leads": 0,
+     "impressions": 1255,
+     "clicks": 18
+    },
+    {
+     "d": "2026-07-27",
+     "spend": 19.39,
+     "leads": 0,
+     "impressions": 1525,
+     "clicks": 23
+    },
+    {
+     "d": "2026-07-28",
+     "spend": 19.88,
+     "leads": 1,
+     "impressions": 1883,
+     "clicks": 30
+    },
+    {
+     "d": "2026-07-29",
+     "spend": 19.69,
+     "leads": 1,
+     "impressions": 1441,
+     "clicks": 22
+    },
+    {
+     "d": "2026-07-30",
+     "spend": 15.29,
+     "leads": 1,
+     "impressions": 1054,
+     "clicks": 17
+    },
+    {
+     "d": "2026-07-31",
+     "spend": 18.97,
+     "leads": 1,
+     "impressions": 1429,
+     "clicks": 27
+    },
+    {
+     "d": "2026-08-01",
+     "spend": 14.45,
+     "leads": 1,
+     "impressions": 1425,
+     "clicks": 25
+    },
+    {
+     "d": "2026-08-02",
+     "spend": 18.41,
+     "leads": 1,
+     "impressions": 1380,
+     "clicks": 21
+    },
+    {
+     "d": "2026-08-03",
+     "spend": 20.94,
+     "leads": 0,
+     "impressions": 1539,
+     "clicks": 29
+    },
+    {
+     "d": "2026-08-04",
+     "spend": 17.32,
+     "leads": 1,
+     "impressions": 1343,
+     "clicks": 25
+    },
+    {
+     "d": "2026-08-05",
+     "spend": 17.33,
+     "leads": 0,
+     "impressions": 1337,
+     "clicks": 23
+    },
+    {
+     "d": "2026-08-06",
+     "spend": 15.42,
+     "leads": 1,
+     "impressions": 1233,
+     "clicks": 18
+    },
+    {
+     "d": "2026-08-07",
+     "spend": 21.14,
+     "leads": 1,
+     "impressions": 1815,
+     "clicks": 29
+    },
+    {
+     "d": "2026-08-08",
+     "spend": 16.23,
+     "leads": 1,
+     "impressions": 1192,
+     "clicks": 17
+    },
+    {
+     "d": "2026-08-09",
+     "spend": 20.99,
+     "leads": 1,
+     "impressions": 1609,
+     "clicks": 26
+    },
+    {
+     "d": "2026-08-10",
+     "spend": 21.86,
+     "leads": 0,
+     "impressions": 1614,
+     "clicks": 27
+    },
+    {
+     "d": "2026-08-11",
+     "spend": 20.04,
+     "leads": 1,
+     "impressions": 1848,
+     "clicks": 34
+    },
+    {
+     "d": "2026-08-12",
+     "spend": 20.14,
+     "leads": 2,
+     "impressions": 1879,
+     "clicks": 31
+    },
+    {
+     "d": "2026-08-13",
+     "spend": 18.71,
+     "leads": 0,
+     "impressions": 1360,
+     "clicks": 20
+    },
+    {
+     "d": "2026-08-14",
+     "spend": 16.13,
+     "leads": 0,
+     "impressions": 1160,
+     "clicks": 20
+    },
+    {
+     "d": "2026-08-15",
+     "spend": 14.9,
+     "leads": 1,
+     "impressions": 1500,
+     "clicks": 27
+    },
+    {
+     "d": "2026-08-16",
+     "spend": 17.93,
+     "leads": 1,
+     "impressions": 1408,
+     "clicks": 23
+    },
+    {
+     "d": "2026-08-17",
+     "spend": 22.29,
+     "leads": 1,
+     "impressions": 1719,
+     "clicks": 27
+    }
+   ]
+  },
+  {
+   "id": "120210000000001005",
+   "name": "PT Intro \u2014 Member Testimonial Reel",
+   "status": "ACTIVE",
+   "campaign": {
+    "id": "23850000000000102",
+    "name": "Personal Training Intro \u2014 Lead Gen",
+    "objective": "OUTCOME_LEADS"
+   },
+   "adset": {
+    "id": "238600000000005",
+    "name": "PT Intro \u2014 Gym Interest",
+    "daily_budget": 20.0
+   },
+   "created_time": "2026-06-14",
+   "thumb": "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2796%27 height=%2796%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%235f3dc4%27/%3E%3Cstop offset=%271%27 stop-color=%27%231971c2%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2796%27 height=%2796%27 fill=%27url(%23g)%27/%3E%3Ctext x=%2748%27 y=%2756%27 font-family=%27sans-serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27white%27 fill-opacity=%270.9%27 text-anchor=%27middle%27%3EPT%3C/text%3E%3C/svg%3E",
+   "lead_source": "website",
+   "leadgen_form_id": null,
+   "links": {
+    "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001005",
+    "leads": null
+   },
+   "totals": {
+    "7d": {
+     "spend": 114.88,
+     "leads": 7,
+     "impressions": 9690,
+     "clicks": 212,
+     "reach": 5410,
+     "frequency": 1.79,
+     "cpl": 16.41,
+     "ctr": 2.19,
+     "cpc": 0.54
+    },
+    "14d": {
+     "spend": 228.87,
+     "leads": 12,
+     "impressions": 19383,
+     "clicks": 409,
+     "reach": 10022,
+     "frequency": 1.93,
+     "cpl": 19.07,
+     "ctr": 2.11,
+     "cpc": 0.56
+    },
+    "30d": {
+     "spend": 469.69,
+     "leads": 22,
+     "impressions": 39730,
+     "clicks": 834,
+     "reach": 24573,
+     "frequency": 1.62,
+     "cpl": 21.35,
+     "ctr": 2.1,
+     "cpc": 0.56
+    },
+    "life": {
+     "spend": 1221.19,
+     "leads": 57,
+     "impressions": 103298,
+     "clicks": 2168,
+     "reach": 49537,
+     "frequency": 2.09,
+     "cpl": 21.42,
+     "ctr": 2.1,
+     "cpc": 0.56
+    }
+   },
+   "daily": [
+    {
+     "d": "2026-07-19",
+     "spend": 16.33,
+     "leads": 1,
+     "impressions": 1504,
+     "clicks": 29
+    },
+    {
+     "d": "2026-07-20",
+     "spend": 14.51,
+     "leads": 1,
+     "impressions": 1191,
+     "clicks": 26
+    },
+    {
+     "d": "2026-07-21",
+     "spend": 14.9,
+     "leads": 1,
+     "impressions": 1135,
+     "clicks": 27
+    },
+    {
+     "d": "2026-07-22",
+     "spend": 15.13,
+     "leads": 1,
+     "impressions": 1445,
+     "clicks": 27
+    },
+    {
+     "d": "2026-07-23",
+     "spend": 13.27,
+     "leads": 1,
+     "impressions": 1220,
+     "clicks": 29
+    },
+    {
+     "d": "2026-07-24",
+     "spend": 15.29,
+     "leads": 0,
+     "impressions": 1104,
+     "clicks": 23
+    },
+    {
+     "d": "2026-07-25",
+     "spend": 15.31,
+     "leads": 1,
+     "impressions": 1308,
+     "clicks": 24
+    },
+    {
+     "d": "2026-07-26",
+     "spend": 12.58,
+     "leads": 0,
+     "impressions": 924,
+     "clicks": 18
+    },
+    {
+     "d": "2026-07-27",
+     "spend": 14.22,
+     "leads": 0,
+     "impressions": 1388,
+     "clicks": 29
+    },
+    {
+     "d": "2026-07-28",
+     "spend": 15.61,
+     "leads": 0,
+     "impressions": 1171,
+     "clicks": 25
+    },
+    {
+     "d": "2026-07-29",
+     "spend": 16.57,
+     "leads": 1,
+     "impressions": 1409,
+     "clicks": 29
+    },
+    {
+     "d": "2026-07-30",
+     "spend": 16.94,
+     "leads": 1,
+     "impressions": 1344,
+     "clicks": 29
+    },
+    {
+     "d": "2026-07-31",
+     "spend": 16.3,
+     "leads": 0,
+     "impressions": 1543,
+     "clicks": 33
+    },
+    {
+     "d": "2026-08-01",
+     "spend": 11.83,
+     "leads": 0,
+     "impressions": 1243,
+     "clicks": 25
+    },
+    {
+     "d": "2026-08-02",
+     "spend": 15.51,
+     "leads": 1,
+     "impressions": 1189,
+     "clicks": 26
+    },
+    {
+     "d": "2026-08-03",
+     "spend": 16.52,
+     "leads": 1,
+     "impressions": 1229,
+     "clicks": 26
+    },
+    {
+     "d": "2026-08-04",
+     "spend": 17.77,
+     "leads": 1,
+     "impressions": 1454,
+     "clicks": 31
+    },
+    {
+     "d": "2026-08-05",
+     "spend": 17.21,
+     "leads": 0,
+     "impressions": 1665,
+     "clicks": 32
+    },
+    {
+     "d": "2026-08-06",
+     "spend": 16.34,
+     "leads": 1,
+     "impressions": 1614,
+     "clicks": 35
+    },
+    {
+     "d": "2026-08-07",
+     "spend": 16.08,
+     "leads": 1,
+     "impressions": 1343,
+     "clicks": 24
+    },
+    {
+     "d": "2026-08-08",
+     "spend": 11.26,
+     "leads": 0,
+     "impressions": 1047,
+     "clicks": 19
+    },
+    {
+     "d": "2026-08-09",
+     "spend": 17.49,
+     "leads": 1,
+     "impressions": 1227,
+     "clicks": 29
+    },
+    {
+     "d": "2026-08-10",
+     "spend": 17.84,
+     "leads": 1,
+     "impressions": 1343,
+     "clicks": 27
+    },
+    {
+     "d": "2026-08-11",
+     "spend": 17.72,
+     "leads": 1,
+     "impressions": 1425,
+     "clicks": 31
+    },
+    {
+     "d": "2026-08-12",
+     "spend": 14.96,
+     "leads": 1,
+     "impressions": 1339,
+     "clicks": 29
+    },
+    {
+     "d": "2026-08-13",
+     "spend": 16.93,
+     "leads": 1,
+     "impressions": 1547,
+     "clicks": 36
+    },
+    {
+     "d": "2026-08-14",
+     "spend": 16.69,
+     "leads": 1,
+     "impressions": 1507,
+     "clicks": 29
+    },
+    {
+     "d": "2026-08-15",
+     "spend": 15.79,
+     "leads": 1,
+     "impressions": 1093,
+     "clicks": 24
+    },
+    {
+     "d": "2026-08-16",
+     "spend": 15.23,
+     "leads": 1,
+     "impressions": 1346,
+     "clicks": 30
+    },
+    {
+     "d": "2026-08-17",
+     "spend": 17.56,
+     "leads": 1,
+     "impressions": 1433,
+     "clicks": 33
+    }
+   ]
+  },
+  {
+   "id": "120210000000001006",
+   "name": "Retarget \u2014 Class Schedule Promo",
+   "status": "ACTIVE",
+   "campaign": {
+    "id": "23850000000000103",
+    "name": "Retargeting \u2014 Site Visitors",
+    "objective": "OUTCOME_TRAFFIC"
+   },
+   "adset": {
+    "id": "238600000000006",
+    "name": "Site Visitors 30d",
+    "daily_budget": 10.0
+   },
+   "created_time": "2026-06-14",
+   "thumb": "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2796%27 height=%2796%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23343a40%27/%3E%3Cstop offset=%271%27 stop-color=%27%23f08c00%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2796%27 height=%2796%27 fill=%27url(%23g)%27/%3E%3Ctext x=%2748%27 y=%2756%27 font-family=%27sans-serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27white%27 fill-opacity=%270.9%27 text-anchor=%27middle%27%3ERT%3C/text%3E%3C/svg%3E",
+   "lead_source": "website",
+   "leadgen_form_id": null,
+   "links": {
+    "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001006",
+    "leads": null
+   },
+   "totals": {
+    "7d": {
+     "spend": 58.86,
+     "leads": 1,
+     "impressions": 4822,
+     "clicks": 132,
+     "reach": 2521,
+     "frequency": 1.91,
+     "cpl": 58.86,
+     "ctr": 2.74,
+     "cpc": 0.45
+    },
+    "14d": {
+     "spend": 120.25,
+     "leads": 1,
+     "impressions": 10242,
+     "clicks": 286,
+     "reach": 5092,
+     "frequency": 2.01,
+     "cpl": 120.25,
+     "ctr": 2.79,
+     "cpc": 0.42
+    },
+    "30d": {
+     "spend": 254.4,
+     "leads": 1,
+     "impressions": 20817,
+     "clicks": 583,
+     "reach": 10982,
+     "frequency": 1.9,
+     "cpl": 254.4,
+     "ctr": 2.8,
+     "cpc": 0.44
+    },
+    "life": {
+     "spend": 661.44,
+     "leads": 2,
+     "impressions": 54124,
+     "clicks": 1515,
+     "reach": 26442,
+     "frequency": 2.05,
+     "cpl": 330.72,
+     "ctr": 2.8,
+     "cpc": 0.44
+    }
+   },
+   "daily": [
+    {
+     "d": "2026-07-19",
+     "spend": 8.31,
+     "leads": 0,
+     "impressions": 678,
+     "clicks": 19
+    },
+    {
+     "d": "2026-07-20",
+     "spend": 7.65,
+     "leads": 0,
+     "impressions": 647,
+     "clicks": 16
+    },
+    {
+     "d": "2026-07-21",
+     "spend": 10.03,
+     "leads": 0,
+     "impressions": 832,
+     "clicks": 21
+    },
+    {
+     "d": "2026-07-22",
+     "spend": 8.96,
+     "leads": 0,
+     "impressions": 731,
+     "clicks": 19
+    },
+    {
+     "d": "2026-07-23",
+     "spend": 9.21,
+     "leads": 0,
+     "impressions": 666,
+     "clicks": 17
+    },
+    {
+     "d": "2026-07-24",
+     "spend": 8.84,
+     "leads": 0,
+     "impressions": 733,
+     "clicks": 22
+    },
+    {
+     "d": "2026-07-25",
+     "spend": 6.64,
+     "leads": 0,
+     "impressions": 457,
+     "clicks": 12
+    },
+    {
+     "d": "2026-07-26",
+     "spend": 6.99,
+     "leads": 0,
+     "impressions": 569,
+     "clicks": 16
+    },
+    {
+     "d": "2026-07-27",
+     "spend": 8.82,
+     "leads": 0,
+     "impressions": 678,
+     "clicks": 19
+    },
+    {
+     "d": "2026-07-28",
+     "spend": 8.1,
+     "leads": 0,
+     "impressions": 612,
+     "clicks": 18
+    },
+    {
+     "d": "2026-07-29",
+     "spend": 8.9,
+     "leads": 0,
+     "impressions": 654,
+     "clicks": 20
+    },
+    {
+     "d": "2026-07-30",
+     "spend": 7.99,
+     "leads": 0,
+     "impressions": 641,
+     "clicks": 19
+    },
+    {
+     "d": "2026-07-31",
+     "spend": 9.08,
+     "leads": 0,
+     "impressions": 770,
+     "clicks": 22
+    },
+    {
+     "d": "2026-08-01",
+     "spend": 6.97,
+     "leads": 0,
+     "impressions": 588,
+     "clicks": 18
+    },
+    {
+     "d": "2026-08-02",
+     "spend": 7.54,
+     "leads": 0,
+     "impressions": 547,
+     "clicks": 16
+    },
+    {
+     "d": "2026-08-03",
+     "spend": 10.12,
+     "leads": 0,
+     "impressions": 772,
+     "clicks": 23
+    },
+    {
+     "d": "2026-08-04",
+     "spend": 10.16,
+     "leads": 0,
+     "impressions": 802,
+     "clicks": 25
+    },
+    {
+     "d": "2026-08-05",
+     "spend": 9.43,
+     "leads": 0,
+     "impressions": 943,
+     "clicks": 27
+    },
+    {
+     "d": "2026-08-06",
+     "spend": 9.07,
+     "leads": 0,
+     "impressions": 647,
+     "clicks": 15
+    },
+    {
+     "d": "2026-08-07",
+     "spend": 8.85,
+     "leads": 0,
+     "impressions": 865,
+     "clicks": 24
+    },
+    {
+     "d": "2026-08-08",
+     "spend": 7.37,
+     "leads": 0,
+     "impressions": 744,
+     "clicks": 23
+    },
+    {
+     "d": "2026-08-09",
+     "spend": 8.34,
+     "leads": 0,
+     "impressions": 816,
+     "clicks": 22
+    },
+    {
+     "d": "2026-08-10",
+     "spend": 8.17,
+     "leads": 0,
+     "impressions": 603,
+     "clicks": 18
+    },
+    {
+     "d": "2026-08-11",
+     "spend": 9.53,
+     "leads": 0,
+     "impressions": 849,
+     "clicks": 24
+    },
+    {
+     "d": "2026-08-12",
+     "spend": 8.4,
+     "leads": 0,
+     "impressions": 611,
+     "clicks": 15
+    },
+    {
+     "d": "2026-08-13",
+     "spend": 7.67,
+     "leads": 0,
+     "impressions": 620,
+     "clicks": 17
+    },
+    {
+     "d": "2026-08-14",
+     "spend": 9.42,
+     "leads": 1,
+     "impressions": 736,
+     "clicks": 19
+    },
+    {
+     "d": "2026-08-15",
+     "spend": 7.37,
+     "leads": 0,
+     "impressions": 756,
+     "clicks": 21
+    },
+    {
+     "d": "2026-08-16",
+     "spend": 7.99,
+     "leads": 0,
+     "impressions": 592,
+     "clicks": 17
+    },
+    {
+     "d": "2026-08-17",
+     "spend": 8.48,
+     "leads": 0,
+     "impressions": 658,
+     "clicks": 19
+    }
+   ]
+  },
+  {
+   "id": "120210000000001007",
+   "name": "Retarget \u2014 Summer Offer (ended)",
+   "status": "PAUSED",
+   "campaign": {
+    "id": "23850000000000103",
+    "name": "Retargeting \u2014 Site Visitors",
+    "objective": "OUTCOME_TRAFFIC"
+   },
+   "adset": {
+    "id": "238600000000007",
+    "name": "Site Visitors 30d",
+    "daily_budget": 10.0
+   },
+   "created_time": "2026-06-14",
+   "thumb": "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2796%27 height=%2796%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 y1=%270%27 x2=%271%27 y2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%23495057%27/%3E%3Cstop offset=%271%27 stop-color=%27%23c2255c%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2796%27 height=%2796%27 fill=%27url(%23g)%27/%3E%3Ctext x=%2748%27 y=%2756%27 font-family=%27sans-serif%27 font-size=%2730%27 font-weight=%27700%27 fill=%27white%27 fill-opacity=%270.9%27 text-anchor=%27middle%27%3ERT%3C/text%3E%3C/svg%3E",
+   "lead_source": "website",
+   "leadgen_form_id": null,
+   "links": {
+    "ads_manager": "https://adsmanager.facebook.com/adsmanager/manage/ads?act=120210000000001&selected_ad_ids=120210000000001007",
+    "leads": null
+   },
+   "totals": {
+    "7d": {
+     "spend": 0.0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0,
+     "reach": 0,
+     "frequency": 0,
+     "cpl": null,
+     "ctr": 0,
+     "cpc": null
+    },
+    "14d": {
+     "spend": 15.35,
+     "leads": 0,
+     "impressions": 1378,
+     "clicks": 30,
+     "reach": 818,
+     "frequency": 1.68,
+     "cpl": null,
+     "ctr": 2.18,
+     "cpc": 0.51
+    },
+    "30d": {
+     "spend": 139.08,
+     "leads": 0,
+     "impressions": 11355,
+     "clicks": 254,
+     "reach": 7012,
+     "frequency": 1.62,
+     "cpl": null,
+     "ctr": 2.24,
+     "cpc": 0.55
+    },
+    "life": {
+     "spend": 194.71,
+     "leads": 0,
+     "impressions": 15896,
+     "clicks": 355,
+     "reach": 8543,
+     "frequency": 1.86,
+     "cpl": null,
+     "ctr": 2.23,
+     "cpc": 0.55
+    }
+   },
+   "daily": [
+    {
+     "d": "2026-07-19",
+     "spend": 7.9,
+     "leads": 0,
+     "impressions": 636,
+     "clicks": 14
+    },
+    {
+     "d": "2026-07-20",
+     "spend": 7.16,
+     "leads": 0,
+     "impressions": 689,
+     "clicks": 13
+    },
+    {
+     "d": "2026-07-21",
+     "spend": 8.52,
+     "leads": 0,
+     "impressions": 605,
+     "clicks": 14
+    },
+    {
+     "d": "2026-07-22",
+     "spend": 6.84,
+     "leads": 0,
+     "impressions": 505,
+     "clicks": 11
+    },
+    {
+     "d": "2026-07-23",
+     "spend": 7.06,
+     "leads": 0,
+     "impressions": 692,
+     "clicks": 17
+    },
+    {
+     "d": "2026-07-24",
+     "spend": 8.47,
+     "leads": 0,
+     "impressions": 590,
+     "clicks": 14
+    },
+    {
+     "d": "2026-07-25",
+     "spend": 6.42,
+     "leads": 0,
+     "impressions": 527,
+     "clicks": 11
+    },
+    {
+     "d": "2026-07-26",
+     "spend": 7.97,
+     "leads": 0,
+     "impressions": 585,
+     "clicks": 14
+    },
+    {
+     "d": "2026-07-27",
+     "spend": 7.22,
+     "leads": 0,
+     "impressions": 518,
+     "clicks": 11
+    },
+    {
+     "d": "2026-07-28",
+     "spend": 9.66,
+     "leads": 0,
+     "impressions": 708,
+     "clicks": 17
+    },
+    {
+     "d": "2026-07-29",
+     "spend": 6.97,
+     "leads": 0,
+     "impressions": 489,
+     "clicks": 10
+    },
+    {
+     "d": "2026-07-30",
+     "spend": 7.48,
+     "leads": 0,
+     "impressions": 734,
+     "clicks": 15
+    },
+    {
+     "d": "2026-07-31",
+     "spend": 7.96,
+     "leads": 0,
+     "impressions": 686,
+     "clicks": 16
+    },
+    {
+     "d": "2026-08-01",
+     "spend": 5.91,
+     "leads": 0,
+     "impressions": 494,
+     "clicks": 10
+    },
+    {
+     "d": "2026-08-02",
+     "spend": 8.72,
+     "leads": 0,
+     "impressions": 744,
+     "clicks": 18
+    },
+    {
+     "d": "2026-08-03",
+     "spend": 9.47,
+     "leads": 0,
+     "impressions": 775,
+     "clicks": 19
+    },
+    {
+     "d": "2026-08-04",
+     "spend": 7.97,
+     "leads": 0,
+     "impressions": 788,
+     "clicks": 19
+    },
+    {
+     "d": "2026-08-05",
+     "spend": 7.38,
+     "leads": 0,
+     "impressions": 590,
+     "clicks": 11
+    },
+    {
+     "d": "2026-08-06",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-07",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-08",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-09",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-10",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-11",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-12",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-13",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-14",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-15",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-16",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    },
+    {
+     "d": "2026-08-17",
+     "spend": 0,
+     "leads": 0,
+     "impressions": 0,
+     "clicks": 0
+    }
+   ]
+  }
+ ]
+}
