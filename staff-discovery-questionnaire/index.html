@@ -309,7 +309,7 @@ const ROLES = {
     blurb: "What you see every shift — quick picks plus a few short answers. No wrong answers."
   },
   ceo: {
-    label: "CEO",
+    label: "Chase",
     meta: "45–60 minutes · the deep one",
     blurb: "Vision, sales, pricing history, your time, and what only you know about this business."
   }
@@ -381,7 +381,7 @@ const QUESTION_SETS = {
       { id: "tr-big-03", type: "text",
         label: "If you ran the place for a month, what's the first thing you'd change?" },
       { id: "tr-big-04", type: "text",
-        label: "Anything else you want the COO to know? (Totally optional.)" }
+        label: "Anything else you want Duncan to know? (Totally optional.)" }
     ]}
   ],
 
@@ -421,7 +421,7 @@ const QUESTION_SETS = {
       { id: "jo-soc-02", type: "text",
         label: "What content performs best for us? What would you make more of if time were no object?" },
       { id: "jo-soc-03", type: "text",
-        label: "The CEO is the face of the content. What do you need from him (or from anyone) that's hard to get today?" }
+        label: "Chase is the face of the content. What do you need from him (or from anyone) that's hard to get today?" }
     ]},
     { id: "big", title: "Big Picture", questions: [
       { id: "jo-big-01", type: "text",
@@ -429,7 +429,7 @@ const QUESTION_SETS = {
       { id: "jo-big-02", type: "text",
         label: "What's genuinely great here that shouldn't be touched?" },
       { id: "jo-big-03", type: "text",
-        label: "Anything else you want the COO to know? (Totally optional.)" }
+        label: "Anything else you want Duncan to know? (Totally optional.)" }
     ]}
   ],
 
@@ -555,12 +555,12 @@ const UI_HTML = [
 '<section class="wrap" id="homeView" hidden>',
 '  <div class="welcome">',
 '    <h1>Help us make Momentum run better</h1>',
-'    <p>This is a short set of questions about how things <b>actually work</b> around here — what’s smooth, what’s clunky, what eats your time, and what members feel. Your answers go straight to the COO and shape what gets fixed first.</p>',
+'    <p>This is a short set of questions about how things <b>actually work</b> around here — what’s smooth, what’s clunky, what eats your time, and what members feel. Your answers go straight to Duncan and shape what gets fixed first.</p>',
 '    <p><b>There are no wrong answers.</b> Honest beats polished. Skip anything you like, and your name is optional.</p>',
 '  </div>',
 '  <div class="draftcard" id="draftCard" hidden></div>',
 '  <div class="rolegrid" id="roleGrid"></div>',
-'  <div class="homefoot"><button class="linky" id="btnReview" type="button">COO review</button></div>',
+'  <div class="homefoot"><button class="linky" id="btnReview" type="button">Duncan’s review</button></div>',
 '</section>',
 '',
 '<section class="wrap" id="formView" hidden>',
@@ -577,14 +577,14 @@ const UI_HTML = [
 '<section class="wrap" id="doneView" hidden>',
 '  <div class="doneCard">',
 '    <div class="big">Thank you — got it. ✦</div>',
-'    <p>Your answers are saved. They go straight to the COO and genuinely shape what gets improved around here.</p>',
+'    <p>Your answers are saved. They go straight to Duncan and genuinely shape what gets improved around here.</p>',
 '    <button class="btn gold" id="btnDoneHome" type="button">Back to Start</button>',
 '  </div>',
 '</section>',
 '',
 '<section class="wrap" id="pinView" hidden>',
 '  <div class="pinbox">',
-'    <div class="mtitle">COO review</div>',
+'    <div class="mtitle">Duncan’s review</div>',
 '    <input type="password" id="pinBox" inputmode="numeric" placeholder="Enter PIN" aria-label="Review PIN">',
 '    <button class="btn gold" id="btnPinGo" type="button">Open Review</button>',
 '  </div>',
@@ -872,7 +872,7 @@ function setMode(mode) {
     banner.classList.remove("show");
   } else if (mode === "local") {
     chip.textContent = "This Device Only"; chip.classList.add("local");
-    banner.innerHTML = "Running outside the published page — answers you submit stay <b>on this device only</b>. Open the claude.ai link so the COO receives them.";
+    banner.innerHTML = "Running outside the published page — answers you submit stay <b>on this device only</b>. Open the claude.ai link so Duncan receives them.";
     banner.classList.add("show");
   } else if (mode === "readonly") {
     chip.textContent = "View Only"; chip.classList.add("ro");
@@ -1017,7 +1017,7 @@ async function submitAnswers() {
     title: "Submit your answers?",
     message: "You answered " + done + " of " + total + " questions" +
       (skipped ? " (" + skipped + " skipped — that's fine)" : "") +
-      ".\nOnce submitted, your answers go to the COO and this form clears for the next person.",
+      ".\nOnce submitted, your answers go to Duncan and this form clears for the next person.",
     confirmLabel: "Submit"
   });
   if (!ok) return;
@@ -1078,7 +1078,7 @@ function renderReview() {
   for (const r of list) byRole[r.role] = (byRole[r.role] || 0) + 1;
   document.getElementById("reviewCount").textContent =
     list.length + " response" + (list.length === 1 ? "" : "s") +
-    (list.length ? " · " + Object.keys(byRole).map(k => byRole[k] + " " + roleLabel(k).toLowerCase()).join(" · ") : "");
+    (list.length ? " · " + Object.keys(byRole).map(k => byRole[k] + " " + roleLabel(k)).join(" · ") : "");
   document.getElementById("reviewList").innerHTML = list.map(responseCardHtml).join("");
   document.getElementById("reviewEmpty").hidden = list.length > 0;
 }

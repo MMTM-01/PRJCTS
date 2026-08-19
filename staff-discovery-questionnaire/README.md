@@ -1,8 +1,9 @@
 # Momentum Fitness — Staff Discovery Questionnaire
 
 A single-page web app that interviews the Momentum team — **trainers**,
-**front desk**, the **CEO**, and **Josie** (who gets her own questionnaire
-covering her trainer / admin / social-content hats). Each role gets
+**front desk**, **Chase** (the CEO), and **Josie** (who gets her own
+questionnaire covering her trainer / admin / social-content hats). The UI
+refers to Chase and Duncan (the COO) by first name throughout. Each role gets
 questions tailored to their seat, written from the COO's discovery
 interview (see [`context/coo-interview.md`](context/coo-interview.md)).
 
@@ -22,11 +23,11 @@ one shared store the COO reviews.
 4. **Submit Answers** → confirm → done. The form clears for the next person.
 
 Rough time per role: Front Desk ~10 min · Trainer 15–20 min ·
-Josie 20–25 min · CEO 45–60 min.
+Josie 20–25 min · Chase 45–60 min.
 
-## How it works for the COO
+## How it works for Duncan (the COO)
 
-- Tap **COO review** at the bottom of the start screen. The PIN is **0817**.
+- Tap **Duncan's review** at the bottom of the start screen. The PIN is **0817**.
   This is a courtesy screen, not security — anyone technical can read the
   page source, which contains all responses. It only keeps casual eyes off
   other people's answers.
