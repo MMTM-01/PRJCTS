@@ -16,6 +16,7 @@ housekeeping files belong at the root.
 |---|---|---|
 | [`technical-seo-audit/`](technical-seo-audit/) | Python crawler that audits themomentumfitness.com — titles, meta, headings, schema, broken links, heavy media — plus the written audit report and fix playbook. | ✅ Audit complete (July 2026); rerun anytime |
 | [`discovery-email-generator/`](discovery-email-generator/) | Single-page web app for turning Discovery Meeting intake into a branded follow-up email, with a shared client portal. Runs as a published Claude Artifact. | 🟢 In use at the front desk |
+| [`staff-discovery-questionnaire/`](staff-discovery-questionnaire/) | Role-tailored questionnaire for trainers, front desk, Josie, and the CEO — answers collect in a shared store the COO reviews and exports. Runs as a published Claude Artifact. | 🟡 Built; awaiting first publish |
 
 ## Repo layout
 
@@ -30,9 +31,14 @@ PRJCTS/
 │   ├── requirements.txt
 │   ├── schema-localbusiness.json
 │   └── reports/               ← crawl data + written deliverables
-└── discovery-email-generator/
+├── discovery-email-generator/
+│   ├── README.md
+│   └── index.html
+└── staff-discovery-questionnaire/
     ├── README.md
-    └── index.html
+    ├── index.html
+    └── context/
+        └── coo-interview.md   ← the COO interview the questions are built from
 ```
 
 ## Starting a new project
