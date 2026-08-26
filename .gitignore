@@ -22,3 +22,7 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# sales-call-faq-analysis — real client conversations, never commit
+sales-call-faq-analysis/cache/
+sales-call-faq-analysis/analysis/

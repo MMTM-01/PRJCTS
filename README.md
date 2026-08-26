@@ -16,6 +16,7 @@ housekeeping files belong at the root.
 |---|---|---|
 | [`technical-seo-audit/`](technical-seo-audit/) | Python crawler that audits themomentumfitness.com — titles, meta, headings, schema, broken links, heavy media — plus the written audit report and fix playbook. | ✅ Audit complete (July 2026); rerun anytime |
 | [`discovery-email-generator/`](discovery-email-generator/) | Single-page web app for turning Discovery Meeting intake into a branded follow-up email, with a shared client portal. Runs as a published Claude Artifact. | 🟢 In use at the front desk |
+| [`sales-call-faq-analysis/`](sales-call-faq-analysis/) | Pulls recorded sales calls from GoHighLevel, extracts the questions prospects asked, and groups them by avatar/ICP segment. | 🟡 Scripts written, not yet run live |
 
 ## Repo layout
 
