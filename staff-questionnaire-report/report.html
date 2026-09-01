@@ -1,0 +1,615 @@
+<title>Momentum Staff Voices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#f7f6f2; --surface:#fcfcfb; --ink:#16180f; --ink-2:#52514e; --muted:#898781;
+  --hairline:#e1e0d9; --ring:rgba(11,11,11,.10);
+  --accent:#1c5cab; --accent-ink:#1c5cab; --accent-wash:rgba(42,120,214,.08);
+  --good:#006300; --good-chip:#0ca30c; --crit:#d03b3b;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300;
+  --quote-rule:#c3c2b7;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --paper:#0f0f0d; --surface:#1a1a19; --ink:#f4f3ec; --ink-2:#c3c2b7; --muted:#898781;
+    --hairline:#2c2c2a; --ring:rgba(255,255,255,.10);
+    --accent:#5598e7; --accent-ink:#86b6ef; --accent-wash:rgba(57,135,229,.12);
+    --good:#0ca30c; --good-chip:#0ca30c; --crit:#e66767;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300;
+    --quote-rule:#383835;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#0f0f0d; --surface:#1a1a19; --ink:#f4f3ec; --ink-2:#c3c2b7; --muted:#898781;
+  --hairline:#2c2c2a; --ring:rgba(255,255,255,.10);
+  --accent:#5598e7; --accent-ink:#86b6ef; --accent-wash:rgba(57,135,229,.12);
+  --good:#0ca30c; --good-chip:#0ca30c; --crit:#e66767;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300;
+  --quote-rule:#383835;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size:17px; line-height:1.65;
+}
+.sans{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:900px; margin:0 auto; padding:0 24px}
+header.hero{border-bottom:1px solid var(--hairline); padding:64px 0 40px; background:linear-gradient(to bottom, var(--accent-wash), transparent 70%)}
+.eyebrow{font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink)}
+h1{
+  font-family:"Barlow Condensed", "Arial Narrow", sans-serif; font-weight:700;
+  font-size:clamp(44px,7vw,72px); line-height:.95; margin:.2em 0 .25em; text-wrap:balance;
+  text-transform:uppercase; letter-spacing:.01em;
+}
+.standfirst{font-size:20px; max-width:36em; color:var(--ink-2); margin:0 0 20px}
+.meta-row{display:flex; flex-wrap:wrap; gap:10px 26px; font-family:system-ui,sans-serif; font-size:13px; color:var(--muted)}
+.meta-row b{color:var(--ink); font-weight:600}
+h2{
+  font-family:"Barlow Condensed", "Arial Narrow", sans-serif; font-weight:700; text-transform:uppercase;
+  font-size:34px; line-height:1.05; margin:0 0 6px; letter-spacing:.015em; text-wrap:balance;
+}
+h3{font-family:"Barlow Condensed", sans-serif; font-weight:600; text-transform:uppercase; font-size:22px; letter-spacing:.03em; margin:34px 0 8px}
+section{padding:44px 0; border-bottom:1px solid var(--hairline)}
+section:last-of-type{border-bottom:none}
+.section-eyebrow{display:flex; align-items:baseline; gap:12px; margin-bottom:14px}
+.section-eyebrow .rule{flex:1; height:1px; background:var(--hairline)}
+p{max-width:42em; margin:.7em 0}
+li{max-width:40em; margin:.35em 0}
+.lede{font-size:18.5px}
+.card{background:var(--surface); border:1px solid var(--ring); border-radius:10px; padding:20px 22px}
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin:22px 0}
+.tile{background:var(--surface); border:1px solid var(--ring); border-radius:10px; padding:14px 16px}
+.tile .v{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:38px; line-height:1; color:var(--ink)}
+.tile .v small{font-size:20px; color:var(--muted); font-weight:600}
+.tile .l{font-family:system-ui,sans-serif; font-size:12.5px; color:var(--ink-2); margin-top:6px; line-height:1.4}
+.chart-block{background:var(--surface); border:1px solid var(--ring); border-radius:12px; padding:22px; margin:24px 0}
+.chart-title{font-family:system-ui,sans-serif; font-weight:600; font-size:15px; margin:0 0 2px}
+.chart-sub{font-family:system-ui,sans-serif; font-size:12.5px; color:var(--muted); margin:0 0 14px}
+.donut-row{display:flex; gap:26px; align-items:center; flex-wrap:wrap}
+.donut-row svg{flex:0 0 auto}
+.legend{font-family:system-ui,sans-serif; font-size:13.5px; flex:1 1 240px; min-width:230px}
+.legend .lg-row{display:flex; align-items:center; gap:9px; padding:4px 0; border-bottom:1px dashed var(--hairline)}
+.legend .lg-row:last-child{border-bottom:none}
+.legend .sw{width:11px; height:11px; border-radius:3px; flex:0 0 auto}
+.legend .nm{flex:1}
+.legend .val{font-variant-numeric:tabular-nums; color:var(--ink); font-weight:600}
+.legend .pct{font-variant-numeric:tabular-nums; color:var(--muted); width:44px; text-align:right}
+.hole-label{font-family:"Barlow Condensed",sans-serif; font-weight:700}
+details.tbl{margin-top:12px; font-family:system-ui,sans-serif; font-size:13px}
+details.tbl summary{cursor:pointer; color:var(--muted)}
+details.tbl table{border-collapse:collapse; margin-top:8px; min-width:280px}
+details.tbl th,details.tbl td{text-align:left; padding:4px 14px 4px 0; border-bottom:1px solid var(--hairline); font-variant-numeric:tabular-nums}
+details.tbl th{color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.06em}
+.bars{font-family:system-ui,sans-serif; font-size:13.5px; display:grid; gap:8px; margin-top:6px}
+.bar-row{display:grid; grid-template-columns:170px 1fr 52px; gap:10px; align-items:center}
+.bar-row .track{background:transparent; height:16px; position:relative}
+.bar-row .fill{position:absolute; inset:0 auto 0 0; background:var(--s1); border-radius:0 4px 4px 0; min-width:3px}
+.bar-row .bl{color:var(--ink-2)}
+.bar-row .bv{font-variant-numeric:tabular-nums; font-weight:600}
+blockquote{
+  margin:26px 0; padding:2px 0 2px 20px; border-left:3px solid var(--accent);
+  font-size:19px; line-height:1.55; font-style:italic; max-width:38em;
+}
+blockquote .who{display:block; margin-top:8px; font-style:normal; font-family:system-ui,sans-serif; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.qgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin:20px 0}
+.qgrid blockquote{margin:0; font-size:16.5px; border-left-color:var(--quote-rule)}
+.tag{display:inline-block; font-family:system-ui,sans-serif; font-size:11.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:2px 9px; border-radius:99px; border:1px solid var(--ring)}
+.tag.good{color:var(--good); border-color:var(--good)}
+.tag.crit{color:var(--crit); border-color:var(--crit)}
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0}
+@media (max-width:720px){.two-col{grid-template-columns:1fr}}
+.col-card{background:var(--surface); border:1px solid var(--ring); border-radius:12px; padding:20px 22px}
+.col-card h4{font-family:"Barlow Condensed",sans-serif; font-weight:700; text-transform:uppercase; font-size:19px; letter-spacing:.04em; margin:0 0 10px; display:flex; align-items:center; gap:10px}
+.col-card ul{margin:0; padding-left:20px; font-size:15.5px}
+.col-card li{margin:.45em 0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:0 0 auto}
+table.plain{border-collapse:collapse; font-family:system-ui,sans-serif; font-size:14px; width:100%; margin:18px 0}
+table.plain th{font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); font-weight:600}
+table.plain th,table.plain td{text-align:left; padding:8px 14px 8px 0; border-bottom:1px solid var(--hairline); vertical-align:top}
+table.plain td{font-variant-numeric:tabular-nums}
+.scroll-x{overflow-x:auto}
+.app-card{background:var(--surface); border:1px solid var(--ring); border-radius:12px; padding:20px 22px; margin:14px 0}
+.app-card .rank{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:30px; color:var(--accent-ink); line-height:1}
+.app-head{display:flex; gap:16px; align-items:baseline}
+.app-head h4{font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; font-weight:700; font-size:22px; letter-spacing:.03em; margin:0}
+.app-card p{font-size:15.5px; margin:.5em 0}
+.app-facts{font-family:system-ui,sans-serif; font-size:12.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:10px}
+.app-facts b{color:var(--ink-2); font-weight:600}
+.phase{display:flex; gap:18px; margin:22px 0; align-items:flex-start}
+.phase .ph-badge{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:17px; letter-spacing:.05em; color:var(--accent-ink); border:1.5px solid var(--accent); border-radius:8px; padding:4px 12px; white-space:nowrap}
+.phase ul{margin:2px 0 0; padding-left:20px; font-size:15.5px}
+.footnote{font-family:system-ui,sans-serif; font-size:12.5px; color:var(--muted); max-width:46em}
+#tip{position:fixed; pointer-events:none; z-index:50; background:var(--ink); color:var(--paper); font-family:system-ui,sans-serif; font-size:12.5px; padding:5px 10px; border-radius:6px; opacity:0; transition:opacity .12s; white-space:nowrap}
+.donut-slice{cursor:default}
+.donut-slice:hover{opacity:.85}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+
+<div id="tip" role="status"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Internal report · Momentum Fitness · September 2026</div>
+    <h1>Momentum Staff Voices</h1>
+    <p class="standfirst">Every member of the team filled out the staff questionnaire — the CEO, the manager wearing three hats, the front desk, and all six trainers. This is what they said, what it means, and what we should build next.</p>
+    <div class="meta-row">
+      <span><b>9</b> responses</span>
+      <span><b>4</b> role tracks</span>
+      <span><b>Aug 19–29, 2026</b> collection window</span>
+      <span><b>187</b> answers analyzed</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="eyebrow">The short version</span><span class="rule"></span></div>
+    <h2>Six things the questionnaire makes undeniable</h2>
+    <ol class="lede">
+      <li><b>Client data lives in nine different pockets.</b> Every trainer keeps client history in their own system — iPhone Notes, paper folders, email threads, even ChatGPT. Nothing is shared, and every trainer independently asked for the same fix: one member profile anyone can pull up.</li>
+      <li><b>Billing is the one thing members actively complain about that we control.</b> Members report surprise charges; the front desk can't answer billing questions; Josie traces most errors to one manual autopay process. The whole chain is fixable.</li>
+      <li><b>Chase is the bottleneck, and he knows it.</b> His own words: he shouldn't be doing 80% of his weekly list. He wants three jobs — vision, culture, finances — and is instead doing seventeen, from sales calls to taking out the trash.</li>
+      <li><b>The staff is asking for consistency, not more ideas.</b> Josie calls it "shiny object syndrome"; a trainer independently named "changing things that currently work just fine too often" as the single most broken thing. Execution debt is real.</li>
+      <li><b>The culture is the moat — protect it.</b> All nine responses, without exception, named the community, the training framework, or the people as the thing that must not change. Nobody said pricing, equipment, or the space.</li>
+      <li><b>The February move is a client-retention project that hasn't started.</b> Trainer estimates of how many clients survive the move range from "all of them" to "starting almost from scratch." Nobody is tracking it in one place.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="eyebrow">Part 1 · Who answered</span><span class="rule"></span></div>
+    <h2>Full participation, four perspectives</h2>
+    <p>The questionnaire ran four role-specific tracks. Everyone completed their track in full — including long-form answers that go well beyond the minimum. Response quality was high across the board; nobody phoned it in.</p>
+
+    <div class="chart-block">
+      <p class="chart-title">Responses by role</p>
+      <p class="chart-sub">9 completed questionnaires, Aug 19–29</p>
+      <div class="donut-row" id="d-roles"></div>
+      <details class="tbl"><summary>Data table</summary><table><tr><th>Role</th><th>Responses</th></tr><tr><td>Trainers</td><td>6</td></tr><tr><td>CEO (Chase)</td><td>1</td></tr><tr><td>Manager, three hats (Josie)</td><td>1</td></tr><tr><td>Front desk (Rylee)</td><td>1</td></tr></table></details>
+    </div>
+
+    <div class="tiles">
+      <div class="tile"><div class="v">4<small>/5</small></div><div class="l">Every single trainer's rating of how well Mindbody &amp; systems support them — unanimous</div></div>
+      <div class="tile"><div class="v">3.5<small>/5</small></div><div class="l">Average trainer preparedness walking into session one after a discovery hand-off</div></div>
+      <div class="tile"><div class="v">4–6<small>hrs</small></div><div class="l">Unpaid, off-the-clock client work per trainer, per week (texting, programming, check-ins)</div></div>
+      <div class="tile"><div class="v">30<small>min/day</small></div><div class="l">Chase's manual payroll-vs-payments reconciliation, plus a second person double-checking</div></div>
+    </div>
+    <p class="footnote">A note on the unanimous 4/5 Mindbody score: trainers barely touch Mindbody's guts — Josie, who administers it, calls it "truthfully all of it" broken and un-cleanable. The 4s measure "it doesn't get in my way," not "it works."</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="eyebrow">Part 2 · Findings</span><span class="rule"></span></div>
+    <h2>What the answers actually say</h2>
+
+    <h3>2.1 · Client data is fragmented nine ways</h3>
+    <p>Asked where client history lives — measurements, progress, session notes — the training staff described seven different personal systems with zero overlap. Typeset is the only shared tool (all six trainers plus Josie use it to build plans), but it's a delivery tool, not a record. The record itself is wherever each trainer happens to keep it.</p>
+
+    <div class="chart-block">
+      <p class="chart-title">Where client records live today</p>
+      <p class="chart-sub">Mentions across 7 training staff (multiple answers each; 14 total mentions)</p>
+      <div class="donut-row" id="d-records"></div>
+      <details class="tbl"><summary>Data table</summary><table><tr><th>System</th><th>Mentions</th></tr><tr><td>Phone notes app</td><td>6</td></tr><tr><td>Paper files / folders</td><td>3</td></tr><tr><td>Cloud platforms (VALD, Fit3D, Superset, Forms)</td><td>2</td></tr><tr><td>Email threads</td><td>1</td></tr><tr><td>Word / Excel</td><td>1</td></tr><tr><td>ChatGPT</td><td>1</td></tr></table></details>
+    </div>
+
+    <p>When asked to imagine a shared member profile, every trainer said they'd use it and listed nearly identical fields: history, goals, restrictions, programs with weights and reps, check-ins, nutrition targets. This is the single clearest product mandate in the whole dataset.</p>
+    <blockquote>"This would be awesome as sometimes we share clients."<span class="who">— David, trainer</span></blockquote>
+    <blockquote>"We also need some kind of app where all of their DM info is housed, we can send programs, pdf resources, etc. Doing all of that on paper &amp; then communicating it through email is not efficient."<span class="who">— Josie</span></blockquote>
+
+    <h3>2.2 · Billing is the top controllable member complaint</h3>
+    <p>Member complaints cluster into two groups: things that are hard to change (a Texas gym runs warm) and one thing that is entirely ours — billing. The chain is visible across three independent responses: members get "charged without their knowledge" (trainer), the front desk's only stuck-point is "the billing situation" (Rylee), and the admin who cleans it up traces "the majority" of errors to one person's manual autopay process, with the rest from trainers scheduling at the wrong rate (Josie). Chase names billing fires as recurring fire #1.</p>
+
+    <div class="chart-block">
+      <p class="chart-title">What members complain about</p>
+      <p class="chart-sub">Mentions across all 9 responses (12 total mentions)</p>
+      <div class="donut-row" id="d-complaints"></div>
+      <details class="tbl"><summary>Data table</summary><table><tr><th>Complaint</th><th>Mentions</th></tr><tr><td>Temperature / AC</td><td>5</td></tr><tr><td>Billing surprises</td><td>2</td></tr><tr><td>Music choice</td><td>2</td></tr><tr><td>"Almost nothing"</td><td>2</td></tr><tr><td>Equipment wear</td><td>1</td></tr></table></details>
+    </div>
+
+    <p>The temperature complaints (5 of 12 mentions) matter less than they look: two trainers volunteered that they're minor grumbles, and the new facility resets HVAC anyway. Billing is the complaint that costs trust and renewals.</p>
+
+    <h3>2.3 · The discovery hand-off works on paper, not in practice</h3>
+    <p>Trainer preparedness for session one after a discovery meeting averages 3.5/5 with a wide spread — one trainer feels fully briefed, another feels close to starting from scratch and mostly wishes he "got more handoffs" at all. The specific gaps trainers named are consistent and concrete:</p>
+    <ul>
+      <li><b>Strength baseline</b> — screenings capture limitations and range of motion, but nothing about actual strength, so session one is "a guessing game" (Josie).</li>
+      <li><b>Nutrition background</b> — the functional screen is great; the nutrition picture arrives empty (David).</li>
+      <li><b>Medications</b> — the med list is "sometimes not complete" (trainer).</li>
+      <li><b>Personality and confidence</b> — how the client feels about starting, which shapes coaching from minute one.</li>
+    </ul>
+
+    <div class="chart-block">
+      <p class="chart-title">"How prepared do you feel walking into session one?"</p>
+      <p class="chart-sub">6 trainers, rated 1 (starting from scratch) to 5 (fully briefed)</p>
+      <div class="donut-row" id="d-handoff"></div>
+      <details class="tbl"><summary>Data table</summary><table><tr><th>Rating</th><th>Trainers</th></tr><tr><td>5 — fully briefed</td><td>1</td></tr><tr><td>4</td><td>2</td></tr><tr><td>3</td><td>2</td></tr><tr><td>2</td><td>1</td></tr></table></details>
+    </div>
+
+    <h3>2.4 · Chase is doing seventeen jobs and wants three</h3>
+    <p>Chase's own weekly list: sales calls, discovery meetings, market research, role clarity, team meetings, team communications, implementing new systems, updating client nutrition plans, updating client training plans, client communications and check-ins, marketing tracking, networking, financials, strategic partnerships, cleaning the gym, racking weights, taking out the trash.</p>
+    <blockquote>"I know I shouldn't be doing 80% of this. My role should be: 1. Create the vision, 2. Build the culture, 3. Manage the finances."<span class="who">— Chase</span></blockquote>
+    <p>Asked what takes far more time than it deserves, he named exactly the things trainers also want automated or owned elsewhere: updating client nutrition and training plans, calling dead-end leads, and refereeing role clarity. Asked what he'd do with ten reclaimed hours a week: work out and spend time with his daughter. And asked what he wishes he could see every Monday morning, he wrote out an eighteen-metric CFO dashboard from memory — new members, CAC, LTV, MRR, ARR, churn, NRR, burn multiple, margins, CAC payback, cash runway. He is running the company's finances with no instrument panel.</p>
+    <p>One more answer deserves visibility rather than a bullet point. Asked what nobody has asked him about, Chase wrote that entrepreneurship is lonely, that no one checks on him, and that he carries the pressure of success in isolation. Whatever else this report changes, the operating partner reading it should know that.</p>
+
+    <h3>2.5 · Physics 101: everyone agrees on the diagnosis</h3>
+    <p>The group-class model is loved and its execution is not. Josie is blunt: five rotating coaches make it inconsistent, programming goes out the night before instead of four weeks ahead, and she'd hand the whole class to one or two dedicated owners. The trainers, asked independently, drew the same line she did: the program, timing, and cues should be identical in every class; personality is the only thing that should vary. David (a Physics coach) agrees the exercises must stay as written, with trainer judgment reserved for progressions and regressions. This is rare — a staffing change where the people affected already agree on the principle.</p>
+    <blockquote>"It's so inconsistent right now with 5 coaches, &amp; that's my least favorite thing about it… Overall, it's a great model. But I think it's being ruined by poor coach quality, a lack of effective exercise instruction, &amp; disorganization."<span class="who">— Josie</span></blockquote>
+
+    <h3>2.6 · The noon–5 dead zone: staff see a demographic problem, not a programming problem</h3>
+    <p>Nobody thinks the current membership will fill the afternoon — the people who train here work during it. Most ideas point at <i>new</i> daytime audiences; the practical blocker raised is that current trainers with families can't staff those hours.</p>
+
+    <div class="chart-block">
+      <p class="chart-title">Ideas for the noon–5 dead zone</p>
+      <p class="chart-sub">8 respondents who answered the question, categorized</p>
+      <div class="donut-row" id="d-deadzone"></div>
+      <details class="tbl"><summary>Data table</summary><table><tr><th>Idea</th><th>Responses</th></tr><tr><td>New daytime audiences (seniors, stay-at-home moms, shift workers)</td><td>4</td></tr><tr><td>Corporate wellness (post-move)</td><td>1</td></tr><tr><td>Hire afternoon-available trainers</td><td>1</td></tr><tr><td>Use it for staff training</td><td>1</td></tr><tr><td>No idea</td><td>1</td></tr></table></details>
+    </div>
+
+    <p>David's "Silver Sneakers" instinct is worth taking seriously: his book is already mostly 60+, they train midday-adjacent hours, and seniors are the one demographic with both daytime availability and a proven fit with Momentum's rehab-forward framework. Chase's corporate-wellness idea self-admittedly waits on the new space. Rylee's answer — use the quiet hours to train her — costs nothing and is covered in finding 2.9.</p>
+
+    <h3>2.7 · The move is a retention project nobody owns yet</h3>
+    <p>The new facility (~15 minutes away, ~Feb 1) drew the widest spread of any question. Same move, same distance — wildly different expected outcomes per trainer:</p>
+    <div class="scroll-x">
+    <table class="plain">
+      <tr><th>Trainer</th><th>Their own estimate</th><th>Read</th></tr>
+      <tr><td>David</td><td>"I think all of them will make the move."</td><td>Low risk</td></tr>
+      <tr><td>Trainer (19 clients)</td><td>15 of 19 move; 4 at risk</td><td>Quantified — the model answer</td></tr>
+      <tr><td>Trainer</td><td>"Majority will come, may lose 1–2"</td><td>Low risk</td></tr>
+      <tr><td>Trainer</td><td>"Maybe 1–3… people are afraid of change"</td><td>Ambiguous</td></tr>
+      <tr><td>Trainer</td><td>"Going through my list now to find out"</td><td>Unknown — actively checking</td></tr>
+      <tr><td>Trainer</td><td>"I may have to start almost from scratch"</td><td><b>High risk</b></td></tr>
+      <tr><td>Josie (6 clients)</td><td>1 sure, 2 no, 3 on the fence — expects to keep ~2</td><td><b>High risk</b></td></tr>
+    </table>
+    </div>
+    <p>The at-risk reasons are almost entirely commute math, which means the levers are known early: schedule shifts that dodge traffic, a concierge "your first week at the new place" plan, and in Josie's case an honest conversation about her book. Five months out is exactly when a per-client risk register is cheap and a January scramble is not.</p>
+
+    <h3>2.8 · Trainers donate 4–6 hours a week off the clock</h3>
+    <p>Every trainer does unpaid work between and after sessions — texting clients, programming, rescheduling, reviewing check-ins. Self-reported hours per week:</p>
+    <div class="chart-block">
+      <p class="chart-title">Self-reported off-the-clock client work</p>
+      <p class="chart-sub">Hours per week, per trainer (midpoint of the range each gave)</p>
+      <div class="bars" id="b-hours"></div>
+      <p class="chart-sub" style="margin-top:10px">One trainer answered "24/7 — I'm always helping someone" and is charted at the group median rather than infinity.</p>
+      <details class="tbl"><summary>Data table</summary><table><tr><th>Trainer</th><th>Reported</th><th>Charted</th></tr><tr><td>Trainer A</td><td>"24/7 access"</td><td>4.5</td></tr><tr><td>Trainer B</td><td>at least 4 hrs</td><td>4.0</td></tr><tr><td>Trainer C</td><td>3–4 hrs</td><td>3.5</td></tr><tr><td>Trainer D</td><td>5–8 hrs</td><td>6.5</td></tr><tr><td>David</td><td>4–5 hrs</td><td>4.5</td></tr><tr><td>Trainer F</td><td>4–5 hrs</td><td>4.5</td></tr></table></details>
+    </div>
+    <p>Across six trainers that's roughly <b>25–30 staff-hours a week</b> of goodwill labor, most of it check-ins and program updates — the two tasks trainers themselves flagged as automatable ("Weekly check-ins. Not being able to have them automated."). The goal isn't to eliminate the personal touch; it's to stop spending it on copy-paste.</p>
+
+    <h3>2.9 · The front desk wants a bigger job</h3>
+    <p>Rylee's questionnaire is an application to grow, hiding in plain sight. Her busiest work is facility upkeep; her stuck-point is billing questions; she rates her comfort answering the main phone at 4/5 <i>with</i> a cheat-sheet and backup; and asked what she'd most enjoy taking on, she picked "helping members with accounts and billing questions" — the exact thing members are confused about and Josie is buried under. Her one ask: training, plus someone to back her up if she gets stuck mid-call.</p>
+
+    <h3>2.10 · Change fatigue is the quiet warning in the data</h3>
+    <p>Two people, independently, named the pace of half-finished initiatives — not any specific problem — as the most broken thing at Momentum:</p>
+    <div class="qgrid">
+      <blockquote>"Every week there's some new idea being brought up when the previous one wasn't even executed successfully. It's like shiny object syndrome coming from Chase's brain sometimes."<span class="who">— Josie</span></blockquote>
+      <blockquote>"Changing things that currently work just fine too often."<span class="who">— Trainer, on the single most broken thing</span></blockquote>
+    </div>
+    <p>Josie adds the operational consequence: tasks get assigned to trainers without compensation attached, so they quietly don't get done, and procedures change before the last change settled. This finding should discipline everything in Part 5 — <b>fewer initiatives, finished properly, beats more initiatives</b>. It's also why the app list below is ranked: build one thing at a time.</p>
+
+    <h3>2.11 · What everyone loves</h3>
+    <p>Asked what must never change, all nine responses converge on the same three things: the community ("we know everyone by name," "the Cheers feeling," "we are a tribe"), the training framework ("no one else does it like we do"), and the people. One trainer added a fourth worth honoring: scheduling freedom — "having the choice to do what you want and when you want is one of the best things about Momentum." Any fix that erodes those four things costs more than it saves.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="eyebrow">Part 3 · The balance sheet</span><span class="rule"></span></div>
+    <h2>Efficiencies &amp; deficiencies</h2>
+    <div class="two-col">
+      <div class="col-card">
+        <h4><span class="dot" style="background:var(--good-chip)"></span>Working well — build on these</h4>
+        <ul>
+          <li><b>Client care instincts.</b> Every trainer notices a quiet client fast and reaches out personally — one literally drives to their house. Retention culture exists; it just has no tooling.</li>
+          <li><b>Typeset adoption.</b> One shared plan-building tool across all seven training staff — a rare piece of de facto standardization to anchor on.</li>
+          <li><b>Daily financial discipline.</b> Payroll reconciliation happens every day without fail, with a double-check. Costly, but the habit is the hard part; automation is the easy part.</li>
+          <li><b>GHL lead capture.</b> Chase confirms it intercepts and buckets leads well; the failure is downstream nurture, not capture.</li>
+          <li><b>The discovery meeting itself.</b> Screening (FMS, now VALD, Fit3D) is thorough on movement; nobody wants it gone, just extended.</li>
+          <li><b>An eager front desk.</b> Rylee is asking for more responsibility — pre-trained enthusiasm is the cheapest capacity you'll ever add.</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h4><span class="dot" style="background:var(--crit)"></span>Leaking time or trust — fix these</h4>
+        <ul>
+          <li><b>No shared client record.</b> Nine pocket systems; shared clients suffer; a trainer departure would take client history with it.</li>
+          <li><b>Manual billing chain.</b> One person's manual autopay causes most errors; members find out via surprise charges; the desk can't answer for it.</li>
+          <li><b>Founder as ops layer.</b> 30 min/day reconciliation, plan updates, dead-lead calls — all sitting on the CEO.</li>
+          <li><b>Check-ins by hand.</b> 25–30 unpaid staff-hours/week, much of it repetitive check-in and program-update work trainers want automated.</li>
+          <li><b>Night-before Physics programming.</b> Should be a four-week block; currently a daily scramble across five coaches.</li>
+          <li><b>No instrument panel.</b> Chase wants 18 metrics; Josie wants 3 reports; today both ask humans and wait.</li>
+          <li><b>Verbal membership changes.</b> Members pause/change at the desk verbally; Josie needs it documented — disputes are inevitable.</li>
+          <li><b>Initiative churn.</b> New systems launched before the last one landed; assignments without compensation quietly die.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="eyebrow">Part 4 · Boundaries</span><span class="rule"></span></div>
+    <h2>What can change, what can't, what shouldn't</h2>
+    <div class="two-col">
+      <div class="col-card">
+        <h4><span class="tag good">Fair game — change freely</span></h4>
+        <ul>
+          <li>The billing pipeline: kill the manual autopay, add reconciliation checks, publish a front-desk billing cheat-sheet.</li>
+          <li>The hand-off packet: add strength baseline, nutrition intake, med list, and a personality note to the DM output.</li>
+          <li>Physics 101 staffing: 1–2 dedicated owners, programming published 4 weeks ahead. Staff already agree.</li>
+          <li>Check-in and program-update workflow: automate the sending and chasing, keep the trainer's voice in the reply.</li>
+          <li>Reporting: a Monday dashboard for Chase, three auto-reports for Josie.</li>
+          <li>Legacy grandfathered rates (~10% of members): Chase explicitly wants the cleanup; sequence it after billing trust is repaired, not before.</li>
+          <li>Membership-change intake: a simple documented form replaces "mention it at the desk."</li>
+          <li>The front desk role: train Rylee up on billing and phones with a backup escalation path.</li>
+          <li>Meeting cadence: David wants weekly team meetings back; the old 1.5-hour Tuesday format was resented. Shorter, standing, weekly.</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h4><span class="tag crit">Constrained — can't change (for now)</span></h4>
+        <ul>
+          <li><b>The move date and distance.</b> ~Feb 1, ~15 minutes away. Commute math is the top at-risk reason; mitigate, can't eliminate.</li>
+          <li><b>The current space</b> until then — Chase's corporate-wellness play explicitly waits on the new building.</li>
+          <li><b>Mindbody's architecture.</b> Records can be deactivated, never deleted; the clutter is permanent. Work around it (or plan a post-move platform decision), don't fight it.</li>
+          <li><b>Trainer afternoon availability.</b> Family obligations are structural; dead-zone strategy must assume new hires or new audiences, not existing staff.</li>
+          <li><b>The 55/45 split, near-term.</b> The consultant wants 45%; Chase judges that trainers would walk without a price rise to offset. Park it.</li>
+          <li><b>Texas heat.</b> Mitigate with the new HVAC; it will never be a cold gym in August.</li>
+          <li><b>External pressures.</b> The building purchase timeline and a pending legal claim from a former employee sit on Chase's mind; neither is solvable from inside operations, but both argue for taking load off him now.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-card" style="margin-top:16px">
+      <h4><span class="dot" style="background:var(--accent)"></span>Protected — could change, must not</h4>
+      <ul>
+        <li><b>The community and culture</b> — named by all nine respondents. Every automation below should remove admin, never human contact.</li>
+        <li><b>The training framework and standard of care</b> — "no one else does it like we do." Codify it, don't dilute it.</li>
+        <li><b>Trainer scheduling freedom</b> — explicitly named as a reason people stay. Dead-zone staffing must not become mandatory afternoon shifts.</li>
+        <li><b>The staff itself</b> — Josie: "aside from a couple, amazing." The bar for new hires is the current team, and everyone knows it.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="eyebrow">Part 5 · Implementation</span><span class="rule"></span></div>
+    <h2>A sequence, not a wishlist</h2>
+    <p>Finding 2.10 is the constraint: the team is tired of launches. So this is deliberately one workstream at a time, each finished and visibly working before the next starts.</p>
+
+    <div class="phase">
+      <div class="ph-badge">Days 1–30</div>
+      <ul>
+        <li><b>Stop the billing bleed.</b> Move every manual autopay into Mindbody's native autopay; until done, a second person verifies each manual charge. Write Rylee's billing cheat-sheet (top 10 questions + when to escalate) and train her on it — she asked.</li>
+        <li><b>Start the move risk register.</b> One shared list: every client, their trainer, move-risk level, and the retention play. The "15 of 19" trainer has already done his — copy his homework.</li>
+        <li><b>Membership-change form.</b> One QR code at the desk; changes only count when submitted. Ends the verbal-change dispute cycle.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="ph-badge">Days 31–60</div>
+      <ul>
+        <li><b>Upgrade the DM hand-off.</b> Add strength baseline, nutrition intake, and med-list confirmation to the discovery flow; output is a one-page brief the receiving trainer gets before session one. Target: no trainer below 4/5 on preparedness.</li>
+        <li><b>Physics 101 reset.</b> Name 1–2 owners, compensate the role explicitly (finding 2.10: assignments without compensation die), publish blocks 4 weeks ahead.</li>
+        <li><b>Monday numbers, v1.</b> Even manual at first: new members, revenue, churn, account balances, membership classifications — emailed every Monday. Chase stops asking humans for numbers.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="ph-badge">Days 61–90</div>
+      <ul>
+        <li><b>Build app #1 (Member Profile Hub, below)</b> and migrate two volunteer trainers' books into it. Prove it before asking all six.</li>
+        <li><b>Automate check-ins</b> through GHL for the volunteers' clients — trainers review and personalize replies instead of initiating every thread.</li>
+        <li><b>Pilot one dead-zone audience.</b> David's seniors concept is the cheapest test: his clientele, midday hours, rehab-forward framework. One class, twice a week, measured.</li>
+      </ul>
+    </div>
+    <p class="footnote">Deliberately excluded from the first 90 days: legacy-rate cleanup (do it once billing errors are at zero, so the price conversation isn't happening on top of broken trust), the 55/45 split (parked), and any new marketing agency decisions.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="eyebrow">Part 6 · Build list</span><span class="rule"></span></div>
+    <h2>Apps worth building, in order</h2>
+    <p>Ranked by demand in the data × operational payoff. The first three each answer a problem that at least three respondents raised independently. All of them fit the pattern we already run — self-contained tools like the discovery email generator, integrated with GHL and Mindbody where their APIs allow.</p>
+
+    <div class="app-card">
+      <div class="app-head"><span class="rank">1</span><h4>Member Profile Hub</h4></div>
+      <p>One profile per member: goals, restrictions, medications, screening results (FMS/VALD/Fit3D links), program history with weights and reps, check-in log, nutrition targets, session notes. Any trainer pulls it up in seconds; shared clients stop being a relay race.</p>
+      <p><b>Why first:</b> every trainer asked for it unprompted and listed the same fields — the strongest mandate in the questionnaire. It also de-risks trainer departures and the move itself.</p>
+      <div class="app-facts"><span><b>Demand:</b> 7 of 7 training staff</span><span><b>Replaces:</b> phone notes, paper folders, email, ChatGPT</span><span><b>Keys to get right:</b> faster than the notes app, or it loses to the notes app</span></div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-head"><span class="rank">2</span><h4>Check-in Autopilot &amp; Retention Radar</h4></div>
+      <p>Auto-sends weekly check-ins (the Google Form Josie already uses, standardized), chases non-responders, and summarizes replies per client. The radar side watches Mindbody attendance: quiet client + missed sessions = a flag on the trainer's list while the save is still cheap. Trainers keep the personal outreach — the app just tells them who and when.</p>
+      <p><b>Why second:</b> converts the 25–30 unpaid weekly staff-hours into coaching time, and turns the team's excellent retention instincts into a system that never misses.</p>
+      <div class="app-facts"><span><b>Demand:</b> named by 4 respondents</span><span><b>Feeds:</b> Profile Hub check-in log</span><span><b>Rails:</b> GHL for messaging, Mindbody for attendance</span></div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-head"><span class="rank">3</span><h4>Billing Guard</h4></div>
+      <p>A daily automatic three-way reconciliation — Mindbody appointments vs. services vs. Worthington deposits — that flags mismatches instead of waiting for Chase to find them. Front-desk mode gives Rylee a searchable billing FAQ and a one-tap "escalate to Josie with context" button.</p>
+      <p><b>Why third:</b> erases Chase's 30 minutes a day and Tiffany's double-check, catches the mischarges before members do, and unblocks the legacy-rate cleanup Chase wants.</p>
+      <div class="app-facts"><span><b>Demand:</b> Chase's fire #1, Rylee's stuck-point, Josie's cleanup burden</span><span><b>Wins back:</b> ~3.5 founder-hours/week + member trust</span></div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-head"><span class="rank">4</span><h4>Monday Dashboard</h4></div>
+      <p>Chase's eighteen metrics, built honestly: the five that matter weekly (new members, MRR, churn, revenue, account balances) live and automatic; the investor-grade set (CAC, LTV, NRR, burn multiple, runway) computed monthly. Josie's three reports — balances, revenue, membership classifications — are the same data, so she gets hers free.</p>
+      <div class="app-facts"><span><b>Demand:</b> Chase (18 metrics), Josie (3 reports)</span><span><b>Note:</b> start with what Mindbody/GHL exports can actually feed; no vanity numbers</span></div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-head"><span class="rank">5</span><h4>Discovery Hand-off Builder</h4></div>
+      <p>A guided DM intake that captures what trainers said is missing — strength baseline, nutrition background, complete med list, personality/confidence notes — and generates the one-page brief automatically into the Profile Hub. The discovery email generator we already built is the natural front half of this flow.</p>
+      <div class="app-facts"><span><b>Demand:</b> 4 trainers + Josie named specific gaps</span><span><b>Target:</b> preparedness floor moves from 2/5 to 4/5</span></div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-head"><span class="rank">6</span><h4>Physics 101 Program Board</h4></div>
+      <p>Four-week block calendar: the owner publishes blocks ahead, every coach sees the same exercises, timing, and cues for each class, and substitutions get logged with a reason. Makes "identical program, personal delivery" — the standard every trainer independently endorsed — enforceable instead of aspirational.</p>
+      <div class="app-facts"><span><b>Demand:</b> Josie + every Physics-adjacent trainer</span><span><b>Depends on:</b> the staffing decision, not the other way around</span></div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-head"><span class="rank">7</span><h4>Move Mission Control</h4></div>
+      <p>The risk register, productized for the five months that matter: every client's move-risk status, assigned retention play, outreach log, and a weekly keep-rate projection per trainer and for the gym. Sunsets itself in March. If only one thing gets built before February, the 30-day manual version of this is it.</p>
+      <div class="app-facts"><span><b>Demand:</b> implicit in 2.7 — nobody owns this today</span><span><b>Deadline-bound:</b> value drops to zero after the move</span></div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-head"><span class="rank">8</span><h4>Content Pipeline Board</h4></div>
+      <p>Josie's bottlenecks are editing time and trainer availability. A lightweight board — content ideas ranked by past performance, a monthly batch-filming day with trainer sign-ups, and a queue showing what's filmed/edited/scheduled — attacks both. Also the diplomatic channel for the note that raw, unpolished Chase outperforms scripted Chase.</p>
+      <div class="app-facts"><span><b>Demand:</b> Josie's whole social hat</span><span><b>Cheapest win:</b> the batch-filming calendar needs no code at all</span></div>
+    </div>
+
+    <p class="footnote">Sequencing note: apps 1, 2 and 5 share one data model (the member profile). Build the Hub first and the other two become features of it rather than separate tools — one login, one system to learn, which is exactly what a change-fatigued team needs.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="eyebrow">Appendix</span><span class="rule"></span></div>
+    <h2>Respondent digest &amp; method</h2>
+    <div class="scroll-x">
+    <table class="plain">
+      <tr><th>Respondent</th><th>Track</th><th>Submitted</th><th>One-line takeaway</th></tr>
+      <tr><td>Chase Bergner</td><td>CEO</td><td>Aug 19</td><td>Doing 80% of the wrong work; wants vision/culture/finances; carrying heavy external pressure alone.</td></tr>
+      <tr><td>Rylee</td><td>Front desk</td><td>Aug 19</td><td>Wants training and a bigger role, especially on billing; needs a cheat-sheet and a backup.</td></tr>
+      <tr><td>Josie</td><td>Three hats</td><td>Aug 24</td><td>5am–11am back-to-back training; wants order, fewer initiatives, Physics ownership, and to swap admin time for social time.</td></tr>
+      <tr><td>Trainer</td><td>Trainer</td><td>Aug 25</td><td>iPhone-notes system; "24/7 access" for clients; sees nothing broken; loves the training principles.</td></tr>
+      <tr><td>Trainer</td><td>Trainer</td><td>Aug 25</td><td>Notes + paper + email; questions mandatory rediscovery meetings; expects most clients to survive the move.</td></tr>
+      <tr><td>Trainer</td><td>Trainer</td><td>Aug 26</td><td>20-client book of business owners; communication load is the cost; "stay-at-home moms" for the dead zone.</td></tr>
+      <tr><td>Trainer</td><td>Trainer</td><td>Aug 27</td><td>Lowest hand-off score (2/5) — "I just wish I got more handoffs"; wants automated check-ins; fears rebuilding from scratch post-move.</td></tr>
+      <tr><td>David Kestenbaum</td><td>Trainer</td><td>Aug 28</td><td>60+ clientele; VALD/Fit3D user; wants weekly meetings back and a nutrition picture in hand-offs; "we are a tribe."</td></tr>
+      <tr><td>Trainer</td><td>Trainer</td><td>Aug 29</td><td>Best-prepared (5/5); 15 of 19 clients moving; flags surprise charges; prizes scheduling freedom; wants performance bonuses.</td></tr>
+    </table>
+    </div>
+    <p class="footnote">Method: responses pulled from the questionnaire artifact's embedded database on Sep 1, 2026 (9 submissions, questionnaire v1, 187 answered questions). Donut percentages are of mentions, not respondents, where a question allowed multiple answers; categorizations of free-text answers are the analyst's. Quotes are verbatim including original punctuation. Four trainer submissions were anonymous by choice and are reported without attribution.</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const tip = document.getElementById('tip');
+  function showTip(e, text){ tip.textContent = text; tip.style.opacity = 1;
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8) + 'px';
+    tip.style.top = (e.clientY + 16) + 'px'; }
+  function hideTip(){ tip.style.opacity = 0; }
+
+  function arcPath(cx, cy, r0, r1, a0, a1){
+    const p = (r,a)=>[cx + r*Math.cos(a), cy + r*Math.sin(a)];
+    const large = (a1-a0) > Math.PI ? 1 : 0;
+    const [x0,y0]=p(r1,a0),[x1,y1]=p(r1,a1),[x2,y2]=p(r0,a1),[x3,y3]=p(r0,a0);
+    return `M${x0} ${y0} A${r1} ${r1} 0 ${large} 1 ${x1} ${y1} L${x2} ${y2} A${r0} ${r0} 0 ${large} 0 ${x3} ${y3} Z`;
+  }
+
+  function donut(elId, data, centerLabel){
+    const el = document.getElementById(elId); if(!el) return;
+    const total = data.reduce((s,d)=>s+d.v,0);
+    const size = 190, cx = size/2, cy = size/2, r1 = 88, r0 = 54;
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS,'svg');
+    svg.setAttribute('width',size); svg.setAttribute('height',size);
+    svg.setAttribute('viewBox',`0 0 ${size} ${size}`);
+    svg.setAttribute('role','img');
+    svg.setAttribute('aria-label', data.map(d=>`${d.label}: ${d.v}`).join(', '));
+    let a = -Math.PI/2;
+    const padPer = 2 / ((r0+r1)/2); // ~2px gap at mid radius
+    data.forEach(d=>{
+      const span = d.v/total * Math.PI*2;
+      const pad = Math.min(padPer, span*0.3);
+      const path = document.createElementNS(svgNS,'path');
+      path.setAttribute('d', arcPath(cx,cy,r0,r1, a+pad/2, a+span-pad/2));
+      path.setAttribute('fill', css(d.c));
+      path.setAttribute('class','donut-slice');
+      const pct = Math.round(d.v/total*100);
+      path.addEventListener('mousemove', e=>showTip(e, `${d.label} — ${d.v} (${pct}%)`));
+      path.addEventListener('mouseleave', hideTip);
+      svg.appendChild(path);
+      a += span;
+    });
+    const t1 = document.createElementNS(svgNS,'text');
+    t1.setAttribute('x',cx); t1.setAttribute('y',cy-2); t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('class','hole-label'); t1.setAttribute('font-size','34'); t1.setAttribute('fill', css('--ink'));
+    t1.textContent = total;
+    const t2 = document.createElementNS(svgNS,'text');
+    t2.setAttribute('x',cx); t2.setAttribute('y',cy+18); t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('font-family','system-ui,sans-serif'); t2.setAttribute('font-size','11'); t2.setAttribute('fill', css('--muted'));
+    t2.textContent = centerLabel;
+    svg.appendChild(t1); svg.appendChild(t2);
+    el.appendChild(svg);
+
+    const lg = document.createElement('div'); lg.className='legend';
+    data.forEach(d=>{
+      const row = document.createElement('div'); row.className='lg-row';
+      const pct = Math.round(d.v/total*100);
+      row.innerHTML = `<span class="sw" style="background:var(${d.c})"></span><span class="nm">${d.label}</span><span class="val">${d.v}</span><span class="pct">${pct}%</span>`;
+      lg.appendChild(row);
+    });
+    el.appendChild(lg);
+  }
+
+  donut('d-roles', [
+    {label:'Trainers', v:6, c:'--s1'},
+    {label:'CEO', v:1, c:'--s2'},
+    {label:'Manager · three hats', v:1, c:'--s3'},
+    {label:'Front desk', v:1, c:'--s4'}
+  ], 'responses');
+
+  donut('d-records', [
+    {label:'Phone notes app', v:6, c:'--s1'},
+    {label:'Paper files / folders', v:3, c:'--s2'},
+    {label:'Cloud (VALD · Fit3D · Superset)', v:2, c:'--s3'},
+    {label:'Email threads', v:1, c:'--s4'},
+    {label:'Word / Excel', v:1, c:'--s5'},
+    {label:'ChatGPT', v:1, c:'--s6'}
+  ], 'mentions');
+
+  donut('d-complaints', [
+    {label:'Temperature / AC', v:5, c:'--s1'},
+    {label:'Billing surprises', v:2, c:'--s2'},
+    {label:'Music choice', v:2, c:'--s3'},
+    {label:'"Almost nothing"', v:2, c:'--s4'},
+    {label:'Equipment wear', v:1, c:'--s5'}
+  ], 'mentions');
+
+  donut('d-handoff', [
+    {label:'5 — fully briefed', v:1, c:'--s1'},
+    {label:'4 — mostly briefed', v:2, c:'--s2'},
+    {label:'3 — halfway', v:2, c:'--s3'},
+    {label:'2 — nearly from scratch', v:1, c:'--s4'}
+  ], 'trainers');
+
+  donut('d-deadzone', [
+    {label:'New daytime audiences', v:4, c:'--s1'},
+    {label:'Corporate wellness (post-move)', v:1, c:'--s2'},
+    {label:'Hire afternoon trainers', v:1, c:'--s3'},
+    {label:'Staff training time', v:1, c:'--s4'},
+    {label:'No idea', v:1, c:'--s5'}
+  ], 'answers');
+
+  const hours = [
+    {l:'Trainer D', v:6.5, note:'reported 5–8 hrs'},
+    {l:'David', v:4.5, note:'reported 4–5 hrs'},
+    {l:'Trainer F', v:4.5, note:'reported 4–5 hrs'},
+    {l:'Trainer A', v:4.5, note:'reported “24/7” — charted at median'},
+    {l:'Trainer B', v:4.0, note:'reported at least 4 hrs'},
+    {l:'Trainer C', v:3.5, note:'reported 3–4 hrs'}
+  ];
+  const bwrap = document.getElementById('b-hours');
+  if (bwrap){
+    const max = 8;
+    hours.forEach(h=>{
+      const row = document.createElement('div'); row.className='bar-row';
+      row.innerHTML = `<span class="bl">${h.l}</span><span class="track"><span class="fill" style="width:${h.v/max*100}%"></span></span><span class="bv">${h.v} h</span>`;
+      row.querySelector('.track').addEventListener('mousemove', e=>showTip(e, `${h.l}: ${h.note}`));
+      row.querySelector('.track').addEventListener('mouseleave', hideTip);
+      bwrap.appendChild(row);
+    });
+  }
+})();
+</script>
