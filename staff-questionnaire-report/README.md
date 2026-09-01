@@ -11,6 +11,9 @@ Claude Artifact, questionnaire v1). All 9 staff responses collected Aug 19–29,
   sequence, and a ranked list of apps to build. Published as the
   **"Momentum Staff Voices"** artifact:
   https://claude.ai/code/artifact/f2950963-85fb-4902-97d6-b377b14120fa
+- `PROGRESS.md` — the working checklist: 30/60/90 workstreams, the app build
+  list, success measures with baselines, and a dated review log. This is the
+  file to open when reflecting back on progress.
 - `data/responses.json` — the raw response database extracted from the
   questionnaire artifact's `#db` block on Sep 1, 2026 (9 submissions).
 - `data/questions.json` — the question definitions (`QUESTION_SETS`) extracted
