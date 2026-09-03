@@ -15,7 +15,7 @@ housekeeping files belong at the root.
 | Project | What it is | Status |
 |---|---|---|
 | [`technical-seo-audit/`](technical-seo-audit/) | Python crawler that audits themomentumfitness.com — titles, meta, headings, schema, broken links, heavy media — plus the written audit report and fix playbook. | ✅ Audit complete (July 2026); rerun anytime |
-| [`discovery-email-generator/`](discovery-email-generator/) | Single-page web app for turning Discovery Meeting intake into a branded follow-up email, with a shared client portal. Runs as a published Claude Artifact. | 🟢 In use at the front desk |
+| `discovery-email-generator/` | Post-Discovery Email Generator — the Discovery Meeting follow-up email builder with its shared client roster. **Graduated** to [`momentum-coo-os/apps/post-dm-email-generator/`](https://github.com/MMTM-01/momentum-coo-os/tree/main/apps/post-dm-email-generator) on 2026-09-03 with its history; it now runs on the ops site behind the team password, roster in the shared datastore. | 🎓 Graduated |
 
 ## Repo layout
 
@@ -24,15 +24,12 @@ PRJCTS/
 ├── README.md                  ← you are here
 ├── CLAUDE.md                  ← conventions for Claude Code sessions
 ├── .gitignore
-├── technical-seo-audit/
-│   ├── README.md
-│   ├── seo_audit.py
-│   ├── requirements.txt
-│   ├── schema-localbusiness.json
-│   └── reports/               ← crawl data + written deliverables
-└── discovery-email-generator/
+└── technical-seo-audit/
     ├── README.md
-    └── index.html
+    ├── seo_audit.py
+    ├── requirements.txt
+    ├── schema-localbusiness.json
+    └── reports/               ← crawl data + written deliverables
 ```
 
 ## Starting a new project
@@ -65,8 +62,8 @@ Before a project moves over, it should have:
   `.env` locally (it's gitignored) and document the required variable names
   in the project README.
 - **Never commit real client data.** Client names, emails, and intake
-  records stay out of git — see the warning in
-  [`discovery-email-generator/README.md`](discovery-email-generator/README.md).
+  records stay out of git. (The Discovery email generator's roster now lives
+  in `momentum-coo-os`'s shared datastore — never in either repo.)
 - Business contact info that's already public (the gym's address, phone,
   and info@ email) is fine to commit.
 - `main` is the stable branch. Work happens on `claude/*` branches and gets

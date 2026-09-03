@@ -38,17 +38,12 @@ crawl — the report, playbook, and PDFs were written by hand from the crawl
 data. A rerun overwrites the CSV/JSON but not the written documents. Don't
 regenerate or reword those documents unless asked.
 
-### `discovery-email-generator/`
-A single self-contained `index.html` — no build step, no dependencies. It
-runs as a published Claude Artifact using the `artifact` capability
-(self-republish, which is how the shared client roster persists) and
-`downloads` (backup export).
-
-**Critical:** the `<script id="db">` block holds the client database. In
-this repo it is deliberately **empty**. The live artifact's copy holds real
-client records, and republishing this file over it wipes them. Keep `#db`
-empty in every commit, and flag the sync step whenever the user plans to
-publish. See the project README for the full procedure.
+### `discovery-email-generator/` — graduated
+Moved to `MMTM-01/momentum-coo-os` as `apps/post-dm-email-generator/` on
+2026-09-03, commit history included. It no longer runs as a Claude Artifact
+and no longer carries a `#db` block: it runs on the ops site behind the team
+password and keeps its roster in that site's shared datastore. Don't recreate
+it here — work on it in that repo.
 
 ## Data and secrets
 
